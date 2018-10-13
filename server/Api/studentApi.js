@@ -1,4 +1,6 @@
 var student = require('../DB/student');
+var manager = require("../DB/manager");
+var moment = require('moment');
 
 exports.getAllStudents = function() {
 
@@ -30,7 +32,6 @@ exports.createAStudent = function(stu) {
 };
 
 
-
 exports.login = function(user) {
 
     student.findAll({
@@ -58,8 +59,35 @@ exports.login = function(user) {
     })
 };
 
+//获取一个学生的所有通知
+exports.getAllInfo = function(stuId) {
+
+
+
+    console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss'));
+
+    var sql
+       =' SELECT info.title,info.content,info.pubTime,info.startTime,info.endTime,timediff(startTime,endTime) as restTime ' +
+        ' FROM StuInfo NATURAL JOIN info ' +
+        ' where stuId = "'+ stuId+ '"' +
+        ' union all ' +
+        ' SELECT info.title,info.content,info.pubTime,info.startTime,info.endTime,timediff(startTime,endTime) as restTime ' +
+        ' FROM StuAdd NATURAL JOIN info ' +
+        ' where stuId = "'+stuId+'"';
+    manager.sequelize.query(sql).then(function(kinds){
+        kinds = kinds[0];
+        kinds.forEach(function (value) {
+            console.log( "所有通知 :" + JSON.stringify(value));
+        });
+
+    })
+
+};
+
+
 //exports.getAllStudents();
-//exports.login({stuId:"2016920771",password:"131"});
+//exports.login({stuId:"201692077",password:"131"});
+exports.getAllInfo("201692077");
 
 // exports.createAStudent({stuId:"201692089",
 //     name:"dddd",
