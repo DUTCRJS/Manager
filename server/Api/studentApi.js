@@ -32,7 +32,10 @@ exports.createAStudent = function(stu) {
 };
 
 
-exports.login = function(user) {
+exports.login = function(req,callback) {
+
+    // var callbackFun = req.query.callbackFun;
+    var user = {stuId:"201692077",password:"13"};
 
     student.findAll({
         where:{
@@ -43,6 +46,7 @@ exports.login = function(user) {
 
         if (oneUser.length === 0) {
             console.log("没有注册");
+            callback({state:0,msg:"您尚未注册注册！"});
         }else{
 
             console.log("注册了！");
@@ -50,8 +54,10 @@ exports.login = function(user) {
             console.log("oneUser.password :" + oneUser.password);
             if(oneUser[0].password === user.password){
                 console.log("登录成功！");
+                callback({state:1 ,msg:"登录成功！"});
             }else{
                 console.log("密码错误！");
+                callback({state:2, msg:"密码错误！"});
             }
 
         }
@@ -61,8 +67,6 @@ exports.login = function(user) {
 
 //获取一个学生的所有通知
 exports.getAllInfo = function(stuId) {
-
-
 
     console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss'));
 
@@ -87,12 +91,12 @@ exports.getAllInfo = function(stuId) {
 
 //exports.getAllStudents();
 //exports.login({stuId:"201692077",password:"131"});
-exports.getAllInfo("201692077");
+//exports.getAllInfo("201692077");
 
-// exports.createAStudent({stuId:"201692089",
-//     name:"dddd",
-//     gender:"男",
-//     phoneNum:"13847771111",
-//     field:"ruanjian",
-//     class:"软1602",
-//     password:"123465"});
+exports.createAStudent({stuId:"201692078",
+    name:"dddd",
+    gender:"男",
+    phoneNum:"13847771111",
+    field:"ruanjian",
+    class:"软1602",
+    password:"123465"});
