@@ -10,22 +10,23 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-10-19 21:45:51
+Date: 2018-10-19 21:46:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `stuadd`
+-- Table structure for `stulike`
 -- ----------------------------
-DROP TABLE IF EXISTS `stuadd`;
-CREATE TABLE `stuadd` (
+DROP TABLE IF EXISTS `stulike`;
+CREATE TABLE `stulike` (
   `stuId` varchar(12) NOT NULL,
-  `infoId` varchar(6) NOT NULL,
-  PRIMARY KEY (`stuId`,`infoId`)
+  `kind` varchar(6) NOT NULL,
+  PRIMARY KEY (`stuId`,`kind`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of stuadd
+-- Records of stulike
 -- ----------------------------
-INSERT INTO `stuadd` VALUES ('201692077', '3');
+INSERT INTO `stulike` VALUES ('201692077', '11');
+INSERT INTO `stulike` VALUES ('201692077', '12');

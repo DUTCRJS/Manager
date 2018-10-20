@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-10-17 22:39:00
+Date: 2018-10-19 21:46:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,8 +21,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `teainfo`;
 CREATE TABLE `teainfo` (
   `teaId` varchar(11) NOT NULL,
-  `kind` varchar(6) NOT NULL,
-  PRIMARY KEY (`teaId`,`kind`)
+  `infoId` varchar(6) NOT NULL,
+  PRIMARY KEY (`teaId`,`infoId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

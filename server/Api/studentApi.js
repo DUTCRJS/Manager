@@ -84,6 +84,8 @@ exports.getAllInfo = function(stuId) {
             console.log( "所有通知 :" + JSON.stringify(value));
         });
 
+
+
     })
 
 };
@@ -93,10 +95,10 @@ exports.getAllInfo = function(stuId) {
 //exports.login({stuId:"201692077",password:"131"});
 //exports.getAllInfo("201692077");
 
-exports.createAStudent({stuId:"201692078",
-    name:"dddd",
-    gender:"男",
-    phoneNum:"13847771111",
-    field:"ruanjian",
-    class:"软1602",
-    password:"123465"});
+// exports.createAStudent({stuId:"201692078",
+//     name:"dddd",
+//     gender:"男",
+//     phoneNum:"13847771111",
+//     field:"ruanjian",
+//     class:"软1602",
+//     password:"123465"});
