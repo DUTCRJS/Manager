@@ -27,6 +27,9 @@ var DreamArtsSignUp = sequelize.define('Student', {
         },
         password:{
             type:Sequelize.STRING(20)
+        },
+        campus:{
+            type:Sequelize.STRING(20)
         }
     },
     {

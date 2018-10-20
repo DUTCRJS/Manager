@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-10-17 22:38:31
+Date: 2018-10-19 21:45:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,3 +28,4 @@ CREATE TABLE `infokind` (
 -- ----------------------------
 -- Records of infokind
 -- ----------------------------
+INSERT INTO `infokind` VALUES ('12', '9');

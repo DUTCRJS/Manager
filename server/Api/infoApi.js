@@ -13,11 +13,10 @@ exports.getAllInfos = function() {
 
 exports.createAInfo = function(oneInfo) {
 
-    var now = Date.now();
+    //var now = Date.now();
     info.create({
 
         title:oneInfo.title,
-        kind:oneInfo.kind,
         date:oneInfo.date,
         start:oneInfo.start,
         end:oneInfo.end,
@@ -66,7 +65,6 @@ exports.login = function(user) {
 
 exports.createAInfo({
     title:"dddd",
-    kind:"91",
     pubTime:new Date(),
     startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
     endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
