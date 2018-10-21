@@ -12,9 +12,10 @@ exports.getAllStudents = function() {
 };
 
 
-exports.createAStudent = function(stu) {
+exports.createAStudent = function(req,callback) {
 
     var now = Date.now();
+    var stu = req.query;
     student.create({
         stuId:stu.stuId,
         name:stu.name,
@@ -25,8 +26,11 @@ exports.createAStudent = function(stu) {
         password:stu.password
     }).then(function (p) {
         console.log('created.' + JSON.stringify(p));
+        callback({state:1,mag:'注册成功！'});
     }).catch(function (err) {
         console.log('failed: ' + err);
+        callback({state:1,mag:'注册失败，请重试！'});
+
     });
 
 };
@@ -35,8 +39,8 @@ exports.createAStudent = function(stu) {
 exports.login = function(req,callback) {
 
     // var callbackFun = req.query.callbackFun;
-    var user = {stuId:"201692077",password:"13"};
-
+    // var user = {stuId:"201692077",password:"13"};
+     var user = req.query;
     student.findAll({
         where:{
             stuId:user.stuId
@@ -84,13 +88,126 @@ exports.getAllInfo = function(stuId) {
             console.log( "所有通知 :" + JSON.stringify(value));
         });
 
-
-
     })
 
 };
 
+exports.studentPrefer = function (req,callback) {
+   var stuPre = req.query;
+   var sql =
+       ' DELETE FROM stulike\n' +
+       ' WHERE stuId = " '+ stuPre.stuId+'";' ;
+       stuPre.prefer.forEach(function (value) {
+           sql += ' INSERT INTO stulike VALUES("'+stuPre.stuId+'"," '+ value +'");';
+       });
 
+   manager.sequelize.query(sql).then(function(kinds) {
+
+       console.log("ret " + JSON.stringify(kinds));
+       callback({state:1,msg:'学生偏好设置成功！'})
+
+   })
+
+};
+
+exports.studentAllInfo = function (req,callback) {
+
+    var stuId = req.query.stuId;
+    // var stuId = "201692077";
+    var sql =
+        ' select distinct info.* ' +
+        ' from stulike join infokind on stulike.kind = infokind.kind ' +
+        ' join info on info.infoId = infokind.infoId ' +
+        ' where stuId = "' + stuId + '" ' +
+        ' union ' +
+        ' select distinct info.* ' +
+        ' from stuadd join info on stuadd.infoId = info.infoId ' +
+        ' where stuId = "'+ stuId +'" ' +
+        ' union ' +
+        ' select distinct info.* ' +
+        ' from stuTea join teainfo on stuTea.teaId = teainfo.teaId ' +
+        ' join info on teainfo.infoId = info.infoId ' +
+        ' where stuId = "'+ stuId +'" ';
+    manager.sequelize.query(sql).then(function(kinds){
+        kinds = kinds[0];
+
+        console.log( "ret :" + JSON.stringify(kinds));
+
+        callback(kinds);
+    })
+};
+
+exports.studentOneInfo = function (req,callback) {
+    var infoId = req.query.infoId;
+    // var infoId = "3" ;
+    var sql =
+        'select * ' +
+        'from info ' +
+        'where infoId = "'+infoId+'"';
+
+    manager.sequelize.query(sql).then(function(kinds) {
+        kinds = kinds[0][0];
+        console.log("ret " + JSON.stringify(kinds));
+        callback(kinds);
+    })
+};
+
+exports.studentDetail = function (req,callback) {
+    var stuId = req.query.stuId;
+    // var infoId = "3" ;
+    var sql =
+        'select * ' +
+        'from student ' +
+        'where stuId = "'+stuId+'"';
+
+    manager.sequelize.query(sql).then(function(kinds) {
+        kinds = kinds[0][0];
+        console.log("ret " + JSON.stringify(kinds));
+        callback(kinds);
+    })
+};
+
+exports.studentAddOneInfo = function (req,callback) {
+    var stuId = req.query.stuId;
+    // var infoId = "3" ;
+    var oneInfo = req.query;
+    var sql1 = 'select infoId from info order by infoId DESC limit 1';
+    manager.sequelize.query(sql1).then(function (value) {
+        value = value[0][0];
+        var infoId = value.infoId + 1;
+
+        var sql =
+            ' insert into info ' +
+            ' values ("'+ infoId +'","'+oneInfo.title+'","'+
+            oneInfo.pubTime +'","'+oneInfo.startTime+'","'+oneInfo.endTime +'","'+oneInfo.content+'"); ' +
+            ' insert into stuadd values ("'+stuId+'",' + ', "'+infoId+'");';
+
+        manager.sequelize.query(sql).then(function(kinds) {
+            kinds = kinds[0][0];
+            console.log("学生自定义通知插入成功！ " + JSON.stringify(kinds));
+            callback({state:1,msg:"学生自定义通知插入成功！"});
+        })
+    });
+
+};
+
+exports.studentSearchInfo = function (req,callback) {
+    var title = req.query.title;
+    // var infoId = "3" ;
+
+    var sql =
+        ' select *  ' +
+        ' from info ' +
+        ' where title like "%通知%" ' +
+        ' limit 5';
+    manager.sequelize.query(sql).then(function (value) {
+        value = value[0];
+        console.log("模糊搜索的title " + value);
+        callback(value);
+
+    });
+};
+// exports.studentAllInfo();
 //exports.getAllStudents();
 //exports.login({stuId:"201692077",password:"131"});
 //exports.getAllInfo("201692077");

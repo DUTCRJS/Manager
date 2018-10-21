@@ -1,0 +1,19 @@
+获取一个学生的所有通知
+
+select distinct info.*
+from stulike join infokind on stulike.kind = infokind.kind
+						 join info on info.infoId = infokind.infoId
+where stuId = '201692077'
+union
+select distinct info.*
+from stuadd join info on stuadd.infoId = info.infoId
+where stuId = '201692077'
+union
+select distinct info.*
+from stuTea join teainfo on stuTea.teaId = teainfo.teaId
+						join info on teainfo.infoId = info.infoId
+where stuId = '201692077'
+
+
+=================
+

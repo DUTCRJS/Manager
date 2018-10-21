@@ -33,17 +33,19 @@ exports.createATeacher = function(user) {
 
 
 
-exports.login = function(user) {
-
+exports.login = function(req,callback) {
+    // var user = {teaId:"201692077",password:"131"};
+    var user = req.query;
     teacher.findAll({
         where:{
-            teaId:user.stuId
+            teaId:user.teaId
         }
     }).then( function (oneUser) {
         console.log("oneUser.length ： " + oneUser.length);
 
         if (oneUser.length === 0) {
             console.log("没有注册");
+            callback({state:0,msg:"您尚未注册注册！"});
         }else{
 
             console.log("注册了！");
@@ -51,8 +53,10 @@ exports.login = function(user) {
             console.log("oneUser.password :" + oneUser.password);
             if(oneUser[0].password === user.password){
                 console.log("登录成功！");
+                callback({state:1,msg:"登录成功！"});
             }else{
                 console.log("密码错误！");
+                callback({state:2,msg:"密码错误！"});
             }
 
         }
@@ -60,38 +64,27 @@ exports.login = function(user) {
     })
 };
 
-exports.createAInfo = function(oneInfo) {
+exports.createAInfo = function(req,callback) {
 
-    //var now = Date.now();
+    var teaId = req.query.teaId;
+    // var infoId = "3" ;
+    var oneInfo = req.query;
     var sql1 = 'select infoId from info order by infoId DESC limit 1';
     manager.sequelize.query(sql1).then(function (value) {
         value = value[0][0];
-        infoId = value.infoId;
-        newinfoId = infoId + 1;
-        //console.log(JSON.stringify(infoId));
+        var infoId = value.infoId + 1;
 
-        info.create({
-            infoId:newinfoId,
-            title:oneInfo.title,
-            pubTime:oneInfo.pubTime,
-            startTime:oneInfo.startTime,
-            endTime:oneInfo.endTime,
-            content:oneInfo.content
-        }).then(function (p) {
-            var kind = '9';
-            var sql = 'INSERT INTO infokind VALUE("'+ newinfoId +'","'+kind+'");';
-            manager.sequelize.query(sql).then(function(kinds){
-                console.log(JSON.stringify(kind));
-            })
+        var sql =
+            ' insert into info ' +
+            ' values ("'+ infoId +'","'+oneInfo.title+'","'+
+            oneInfo.pubTime +'","'+oneInfo.startTime+'","'+oneInfo.endTime +'","'+oneInfo.content+'"); ' +
+            ' insert into teaInfo values ("'+teaId+'",' + ', "'+infoId+'");';
 
-
-
-        }).catch(function (err) {
-            console.log('failed: ' + err);
-        });
-
-
-
+        manager.sequelize.query(sql).then(function(kinds) {
+            kinds = kinds[0][0];
+            console.log("老师自定义通知插入成功！ " + JSON.stringify(kinds));
+            callback({state:1,msg:"老师自定义通知插入成功！"});
+        })
     });
 
 
@@ -106,9 +99,9 @@ exports.createAInfo = function(oneInfo) {
 //
 //     password:"123465"});
 
-exports.createAInfo({title:"辅导员的通知",
-    pubTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-    startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-    endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-
-    content:"123465"});
+// exports.createAInfo({title:"辅导员的通知",
+//     pubTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+//     startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+//     endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+//
+//     content:"123465"});
