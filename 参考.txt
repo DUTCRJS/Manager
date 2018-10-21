@@ -1,0 +1,6 @@
+cookie£º
+http://html5plus.org/doc/zh_cn/navigator.html#plus.navigator.setCookie
+
+
+storage£º
+http://www.html5plus.org/doc/zh_cn/storage.html
