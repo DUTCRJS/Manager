@@ -77,7 +77,7 @@ exports.createAInfo = function(req,callback) {
         var sql =
             ' insert into info ' +
             ' values ("'+ infoId +'","'+oneInfo.title+'","'+
-            oneInfo.pubTime +'","'+oneInfo.startTime+'","'+oneInfo.endTime +'","'+oneInfo.content+'"); ' +
+            oneInfo.pubTime +'","'+oneInfo.startTime+'","'+oneInfo.endTime +'","'+oneInfo.content+'",""); ' +
             ' insert into teaInfo values ("'+teaId+'",' + ', "'+infoId+'");';
 
         manager.sequelize.query(sql).then(function(kinds) {

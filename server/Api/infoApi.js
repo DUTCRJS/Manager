@@ -63,9 +63,9 @@ exports.login = function(user) {
 //exports.login({stuId:"201692077",password:"131"});
 
 
-exports.createAInfo({
-    title:"dddd",
-    pubTime:new Date(),
-    startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-    endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-    content:"内容"});
+// exports.createAInfo({
+//     title:"dddd",
+//     pubTime:new Date(),
+//     startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+//     endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+//     content:"内容"});

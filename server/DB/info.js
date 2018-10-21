@@ -27,6 +27,9 @@ var DreamArtsSignUp = sequelize.define('Info', {
         },
         content:{
             type:Sequelize.STRING(2000)
+        },
+        htmlContent:{
+            type:Sequelize.STRING(2000)
         }
     },
     {
