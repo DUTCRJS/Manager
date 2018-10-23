@@ -28,27 +28,61 @@
     	{
     		window.location.href='teacherLogin.html';
     	}
- var oTxt = document.getElementById('stuID');
-console.log('1');
-  var oBtn = document.getElementById('login');
-  console.log('3');
-  function isnull(val) {
+ 
+  function isnull_id(val) {
 
       var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
 
-      if (str == '' || str == undefined || str == null) {
+      if (str == '' || str == undefined || str == null) 
+      {
           //return true;
-          console.log('33')
-      } else {
+          console.log('学号不能为空')
+          return false;
+      } 
+      else {
           //return false;
-          console.log('55');
-      }
-  }
+          var length = str.length;
+    		if(length == 9 && /^((([0-9]{1})|)+\d{9})$/.test(val) ) 
+    		{ 
+        		  console.log('可以提交');
+   				  return true;
+    		}
+			else
+			{
+        		  console.log('格式不正确');
+                  return false;
+   			}
+        
+      	}
+  	}
+  function isnull_pw(val) {
+
+      var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+
+      if (str == '' || str == undefined || str == null) 
+      {
+          //return true;
+          console.log('密码不能为空')
+             return false;
+      } 
+      else {
+          
+        	console.log('可以提交');
+            return true;
+    		
+  			}
+     }
 
 function sub() {
-		console.log('2');
-      isnull( oTxt.value );
-//
+		var oid = document.getElementById('stuID');
+		var opw = document.getElementById('password');
+//		console.log('1');
+  		var oBtn = document.getElementById('login');
+//		console.log('3');
+    	if(isnull_id( oid.value )&&isnull_pw( opw.value))
+    	{
+    		console.log('提交到后台');
+    	}
  }
 
 
@@ -91,11 +125,12 @@ function sub() {
 			                        </div>
 			                        <div class="form-group">
 			                        	<!--<label class="sr-only" for="form-password">密码</label>-->
-			                        	<input type="password" name="password" placeholder="密码" class="form-password form-control" id="form-password">
+			                        	<input type="password" id="password" name="password" placeholder="密码" class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="button" id="login" name="password" class="btn" onclick="sub()" >登录</button>
+			                        <button type="button" id="login"  class="btn" onclick="sub()" >登录</button>
 			                     
 			                    </form>
+			                    <div style="text-align: right;"><a>现在注册</a></div>
 		                    </div>
                         </div>
                     </div>
