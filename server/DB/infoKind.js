@@ -11,7 +11,7 @@ var DreamArtsSignUp = sequelize.define('infoKind', {
             primaryKey: true
         },
         kind:{ //消息的Id
-            type:Sequelize.STRING(6),
+            type:Sequelize.STRING(20),
             primaryKey: true
         }
 

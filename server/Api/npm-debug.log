@@ -1,0 +1,188 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'infoApi' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.3
+4 verbose install initial load of E:\Manager\server\package.json
+5 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\accepts\package.json
+6 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\ansicolors\package.json
+7 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\array-flatten\package.json
+8 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\basic-auth\package.json
+9 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\bluebird\package.json
+10 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\body-parser\package.json
+11 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\bosonnlp\package.json
+12 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\bytes\package.json
+13 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cardinal\package.json
+14 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cheerio\package.json
+15 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cls-bluebird\package.json
+16 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\content-disposition\package.json
+17 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\content-type\package.json
+18 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cookie\package.json
+19 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cookie-parser\package.json
+20 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\cookie-signature\package.json
+21 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\debug\package.json
+22 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\denque\package.json
+23 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\depd\package.json
+24 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\destroy\package.json
+25 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\dottie\package.json
+26 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\ee-first\package.json
+27 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\ejs\package.json
+28 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\encodeurl\package.json
+29 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\escape-html\package.json
+30 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\esprima\package.json
+31 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\etag\package.json
+32 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\express\package.json
+33 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\finalhandler\package.json
+34 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\forwarded\package.json
+35 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\fresh\package.json
+36 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\generate-function\package.json
+37 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\generic-pool\package.json
+38 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\http-errors\package.json
+39 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\iconv-lite\package.json
+40 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\inflection\package.json
+41 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\inherits\package.json
+42 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\ipaddr.js\package.json
+43 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\is-bluebird\package.json
+44 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\is-property\package.json
+45 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\lodash\package.json
+46 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\long\package.json
+47 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\lru-cache\package.json
+48 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\media-typer\package.json
+49 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\merge-descriptors\package.json
+50 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\methods\package.json
+51 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\mime\package.json
+52 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\mime-db\package.json
+53 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\mime-types\package.json
+54 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\moment\package.json
+55 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\moment-timezone\package.json
+56 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\morgan\package.json
+57 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\ms\package.json
+58 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\mysql\package.json
+59 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\mysql2\package.json
+60 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\named-placeholders\package.json
+61 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\negotiator\package.json
+62 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\object-assign\package.json
+63 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\on-finished\package.json
+64 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\on-headers\package.json
+65 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\parseurl\package.json
+66 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\path-to-regexp\package.json
+67 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\proxy-addr\package.json
+68 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\pseudomap\package.json
+69 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\qs\package.json
+70 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\range-parser\package.json
+71 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\raw-body\package.json
+72 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\redeyed\package.json
+73 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\retry-as-promised\package.json
+74 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\safe-buffer\package.json
+75 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\safer-buffer\package.json
+76 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\semver\package.json
+77 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\send\package.json
+78 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\seq-queue\package.json
+79 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\sequelize\package.json
+80 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\serve-static\package.json
+81 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\setprototypeof\package.json
+82 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\shimmer\package.json
+83 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\sqlstring\package.json
+84 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\statuses\package.json
+85 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\terraformer\package.json
+86 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\terraformer-wkt-parser\package.json
+87 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\toposort-class\package.json
+88 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\type-is\package.json
+89 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\unpipe\package.json
+90 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\utils-merge\package.json
+91 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\uuid\package.json
+92 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\validator\package.json
+93 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\vary\package.json
+94 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\wkx\package.json
+95 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\yallist\package.json
+96 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\@types\geojson\package.json
+97 verbose installManyTop reading scoped package data from E:\Manager\server\node_modules\@types\node\package.json
+98 info package.json denque@1.3.0 license should be a valid SPDX license expression
+99 info package.json dottie@2.0.0 No license field.
+100 info package.json seq-queue@0.0.5 No license field.
+101 verbose readDependencies loading dependencies from E:\Manager\server\package.json
+102 silly cache add args [ 'infoApi', null ]
+103 verbose cache add spec infoApi
+104 silly cache add parsed spec Result {
+104 silly cache add   raw: 'infoApi',
+104 silly cache add   scope: null,
+104 silly cache add   name: 'infoApi',
+104 silly cache add   rawSpec: '',
+104 silly cache add   spec: 'latest',
+104 silly cache add   type: 'tag' }
+105 silly addNamed infoApi@latest
+106 verbose addNamed "latest" is being treated as a dist-tag for infoApi
+107 info addNameTag [ 'infoApi', 'latest' ]
+108 silly mapToRegistry name infoApi
+109 silly mapToRegistry using default registry
+110 silly mapToRegistry registry https://registry.npmjs.org/
+111 silly mapToRegistry data Result {
+111 silly mapToRegistry   raw: 'infoApi',
+111 silly mapToRegistry   scope: null,
+111 silly mapToRegistry   name: 'infoApi',
+111 silly mapToRegistry   rawSpec: '',
+111 silly mapToRegistry   spec: 'latest',
+111 silly mapToRegistry   type: 'tag' }
+112 silly mapToRegistry uri https://registry.npmjs.org/infoApi
+113 verbose addNameTag registry:https://registry.npmjs.org/infoApi not in flight; fetching
+114 verbose request uri https://registry.npmjs.org/infoApi
+115 verbose request no auth needed
+116 info attempt registry request try #1 at 21:28:14
+117 verbose request id 13374d9141b7c7b4
+118 http request GET https://registry.npmjs.org/infoApi
+119 http 404 https://registry.npmjs.org/infoApi
+120 verbose headers { date: 'Sun, 21 Oct 2018 13:27:55 GMT',
+120 verbose headers   'content-type': 'application/json',
+120 verbose headers   'content-length': '21',
+120 verbose headers   connection: 'keep-alive',
+120 verbose headers   'set-cookie': [ '__cfduid=ddbbeafb04ac8fc431c3511e48b035c281540128475; expires=Mon, 21-Oct-19 13:27:55 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+120 verbose headers   'cf-cache-status': 'MISS',
+120 verbose headers   'cache-control': 'max-age=300',
+120 verbose headers   'cf-ray': '46d410792c51a996-SIN',
+120 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+120 verbose headers   vary: 'accept-encoding, accept',
+120 verbose headers   server: 'cloudflare' }
+121 silly get cb [ 404,
+121 silly get   { date: 'Sun, 21 Oct 2018 13:27:55 GMT',
+121 silly get     'content-type': 'application/json',
+121 silly get     'content-length': '21',
+121 silly get     connection: 'keep-alive',
+121 silly get     'set-cookie': [ '__cfduid=ddbbeafb04ac8fc431c3511e48b035c281540128475; expires=Mon, 21-Oct-19 13:27:55 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+121 silly get     'cf-cache-status': 'MISS',
+121 silly get     'cache-control': 'max-age=300',
+121 silly get     'cf-ray': '46d410792c51a996-SIN',
+121 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+121 silly get     vary: 'accept-encoding, accept',
+121 silly get     server: 'cloudflare' } ]
+122 verbose stack Error: Not found : infoApi
+122 verbose stack     at makeError (D:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+122 verbose stack     at CachingRegistryClient.<anonymous> (D:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+122 verbose stack     at Request._callback (D:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+122 verbose stack     at Request.self.callback (D:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:199:22)
+122 verbose stack     at emitTwo (events.js:87:13)
+122 verbose stack     at Request.emit (events.js:172:7)
+122 verbose stack     at Request.<anonymous> (D:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1036:10)
+122 verbose stack     at emitOne (events.js:82:20)
+122 verbose stack     at Request.emit (events.js:169:7)
+122 verbose stack     at IncomingMessage.<anonymous> (D:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:963:12)
+123 verbose statusCode 404
+124 verbose pkgid infoApi
+125 verbose cwd E:\Manager\server\Api
+126 error Windows_NT 10.0.17134
+127 error argv "D:\\Program Files\\nodejs\\node.exe" "D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "infoApi"
+128 error node v4.4.3
+129 error npm  v2.15.1
+130 error code E404
+131 error 404 Not found : infoApi
+131 error 404
+131 error 404 'infoApi' is not in the npm registry.
+131 error 404 Your package name is not valid, because
+131 error 404
+131 error 404  1. name can no longer contain capital letters
+131 error 404 It was specified as a dependency of 'server'
+131 error 404
+131 error 404 Note that you can also install from a
+131 error 404 tarball, folder, http url, or git url.
+132 verbose exit [ 1, true ]

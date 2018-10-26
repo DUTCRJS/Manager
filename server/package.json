@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "bosonnlp": "^0.1.0",
+    "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "~1.4.3",
+    "cron-parser": "^2.6.0",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
@@ -15,6 +17,7 @@
     "moment": "^2.22.2",
     "morgan": "~1.9.0",
     "mysql2": "^1.6.1",
+    "node-schedule": "^1.3.0",
     "sequelize": "^4.39.0"
   }
 }

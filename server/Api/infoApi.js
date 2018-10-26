@@ -1,4 +1,6 @@
 var info = require('../DB/info');
+var infoKind = require('../DB/infoKind');
+var infoUrl = require('../DB/infourl');
 
 var moment = require('moment');
 
@@ -17,18 +19,53 @@ exports.createAInfo = function(oneInfo) {
     info.create({
 
         title:oneInfo.title,
-        date:oneInfo.date,
+        pubTime:oneInfo.date,
         start:oneInfo.start,
         end:oneInfo.end,
-        content:oneInfo.content
+        content:oneInfo.content,
+        htmlContent:oneInfo.htmlContent,
+        kind:oneInfo.kind
     }).then(function (p) {
-        console.log('created.' + JSON.stringify(p));
+        // console.log(p.kind);
+        //创造info的kind
+        var temp = JSON.parse(p.kind);
+        var size = temp.length;
+        for(var i =0; i < size; i++){
+            infoKind.create({
+                infoId:p.infoId,
+                kind:temp[i]
+            }).catch(function (err) {
+                console.log('failed: ' + err);
+            });
+        }
+
     }).catch(function (err) {
         console.log('failed: ' + err);
     });
 
 };
 
+exports.createAUrl = function(url){
+    // var size = urlS.length;
+    // console.log(size);
+    // for(var i = 0; i < size; i ++){
+    //     infoUrl.create({
+    //         url:urlS[i]
+    //     }).then(function(){
+    //         console.log("success");
+    //     }).catch(function (err) {
+    //         console.log('failed: ' + err);
+    //     });
+    // }
+    infoUrl.create({
+        url:url
+    }).then(function(){
+        console.log("success");
+    }).catch(function (err) {
+        console.log("bbb");
+        console.log('failed: ' + err);
+    });
+};
 
 exports.login = function(user) {
 
@@ -62,7 +99,7 @@ exports.login = function(user) {
 //exports.getAllStudents();
 //exports.login({stuId:"201692077",password:"131"});
 
-
+//测试数据
 // exports.createAInfo({
 //     title:"dddd",
 //     pubTime:new Date(),

@@ -8,10 +8,11 @@ var DreamArtsSignUp = sequelize.define('Info', {
 
         infoId:{ //学生的学号,主键
             type:Sequelize.INTEGER(6),
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         title:{
-            type:Sequelize.STRING(40)
+            type:Sequelize.STRING(60)
         },
         date:{
             type:Sequelize.DATE()
@@ -30,6 +31,9 @@ var DreamArtsSignUp = sequelize.define('Info', {
         },
         htmlContent:{
             type:Sequelize.STRING(2000)
+        },
+        kind:{
+            type:Sequelize.STRING(20)
         }
     },
     {
