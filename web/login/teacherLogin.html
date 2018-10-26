@@ -23,13 +23,14 @@
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
     </head>
+     <script type="text/javascript" src="../js/jquery.min.js" ></script>
     <script>
     	function stu()
     	{
     		window.location.href='studentLogin.html';
     	}
     	
-    	function isnull_id(val) {
+     function isnull_id(val) {
 
       var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
 
@@ -42,7 +43,7 @@
       else {
           //return false;
           var length = str.length;
-    		if(length == 9 && /^((([0-9]{1})|)+\d{9})$/.test(val) )   //暂定职工号9位
+    		if(length == 9 && /^((([0-9]{1})|)+\d{9})$/.test(val) ) 
     		{ 
         		  console.log('可以提交');
    				  return true;
@@ -55,7 +56,7 @@
         
       	}
   	}
-  function isnull_pw(val) {
+  	function isnull_pw(val) {
 
       var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
 
@@ -72,17 +73,62 @@
     		
   			}
      }
-  function sub() {
-		var oid = document.getElementById('teaId');
-		var opw = document.getElementById('password');
+
+
+
+
+    //回调函数
+    function getName(data){
+        console.log(data.state);
+        
+		//console.log(JSON.stringify(data));
+        //alert("sucess " + JSON.stringify(data));
+        if(data.state=="1")
+        {
+        	console.log("成功！");
+        	window.location.href='../plan.html';
+        }
+        if(data.state=="2")
+        {
+        	console.log("密码不正确");
+        	
+        }
+         if(data.state=="0")
+        {
+        	console.log("尚未注册");
+        	
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#btn").click(function () {
+        	var oid = document.getElementById('teaId');
+			var opw = document.getElementById('password');
 //		console.log('1');
-  		var oBtn = document.getElementById('login');
+  			var oBtn = document.getElementById('login');
 //		console.log('3');
-    	if(isnull_id( oid.value )&&isnull_pw( opw.value))
-    	{
-    		console.log('提交到后台');
-    	}
- }
+    		if(isnull_id( oid.value )&&isnull_pw( opw.value))
+    		{
+    			
+    		
+    		
+            //向头部输入一个脚本，该脚本发起一个跨域请求
+            $.ajax({
+                type: "GET",
+                url: "http://58.87.72.83:3000/teacherLogin",
+                data: {callbackFun:"getName",
+                teaId:"oid",
+                password:"opw",
+                },
+                dataType:"jsonp"  //数据格式设置为jsonp
+                //jsonp:"callback"
+            });
+           }
+        });
+
+    });
+
     </script>
 
     <body>
@@ -124,7 +170,7 @@
 			                        	<!--<label class="sr-only" for="form-password">密码</label>-->
 			                        	<input type="password" name="password" id="password" placeholder="请输入密码" class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn" id="login" onclick="sub()">登录</button>
+			                        <button type="button" class="btn" id="btn">登录</button>
 			                   
 			                    </form>
 		                    </div>
