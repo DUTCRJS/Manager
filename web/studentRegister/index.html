@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bootstrap Registration Form Template</title>
-0
+
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -104,7 +104,7 @@
   	function jianchaminma(val1,val2) {
 
 //    var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-
+console.log("mima");
       if (val1!=val2) 
       {
           //return true;
@@ -122,6 +122,7 @@
 
     //回调函数
     function getName(data){
+    	console.log("get");
         console.log(data.state);
         
 		console.log(JSON.stringify(data));
@@ -165,7 +166,7 @@
     			&&isnull(campus.value)
     			&&jianchaminma(opw1.value,opw2.value))
     		{
-    			
+    			console.log("go！");
     		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
             //向头部输入一个脚本，该脚本发起一个跨域请求
@@ -180,12 +181,13 @@
                 phoneNum:"phoneNum",
                 field:"field",
                 class:"oclass",
-                campus:"campus"
+                campus:"campus",
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 
                 //jsonp:"callback"
             });
+            console.log("gogogo！");
            }
         });
 
@@ -229,10 +231,10 @@
 			                        	
 			                        	<div class="col-sm-3">
 			                        		<label>
-			                        			<input type="radio" value="1" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">男</input>
+			                        			<input type="radio" value="男" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">男</input>
 			                       			</label>
 			                       			<label>
-			                        			<input type="radio" value="2" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">女</input>
+			                        			<input type="radio" value="女" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">女</input>
 			                        		</label>
 			                        	</div>
 			                     		</div>
