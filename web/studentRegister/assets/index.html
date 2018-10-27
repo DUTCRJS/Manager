@@ -10,10 +10,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+		    <link rel="stylesheet" href="./css/form-elements.css">
+        <link rel="stylesheet" href="./css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,14 +23,14 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="./ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
 
     </head>
- <script type="text/javascript" src="assets/js/jquery.min.js" ></script>
+ <script type="text/javascript" src="./js/jquery.min.js" ></script>
   <script>
    
  	 function isnull_id(val) {
@@ -126,7 +126,7 @@ console.log("mima");
         console.log(data.state);
         
 		console.log(JSON.stringify(data));
-        alert("sucess " + JSON.stringify(data));
+        //alert("sucess " + JSON.stringify(data));
         if(data.state=="1")
         {
         	console.log("成功！");
@@ -144,33 +144,29 @@ console.log("mima");
 
         $("#btn").click(function () {
 
-      var oid = $('#stuI').val();
-			var opw1 = $('#password').val();
-			var opw2 = $('#password_again').val();
-			var name = $('#name').val();
-			var phoneNum = $('#phoneNum').val();
-			var field = $('#field').val();
-			var gender = $('#gender').val();
-			var oclass = $('#class').val();
-			var campus = $('#campus').val();
-			var gender = $('#gender').val();
+      var oid = document.getElementById('stuI');
+			var opw1 = document.getElementById('password');
+			var opw2 = document.getElementById('password_again');
+			var name = document.getElementById('name');
+			var phoneNum = document.getElementById('phoneNum');
+			var field = document.getElementById('field');
+			var gender = document.getElementById('gender');
+			var oclass = document.getElementById('class');
+			var campus = document.getElementById('campus');
+			var gender = document.getElementById('gender');
 
-		console.log("gender " + gender);
+//		console.log('1');
   			var oBtn = document.getElementById('Btn');
-		console.log('3');
-
-
-
-
-    		if(isnull_id(oid)
-    			&&isnull( opw1)
-    			&&isnull(name)
-    			&&isnull(field)
-    			&&isnull_pn(phoneNum)
-    			&&isnull(gender)
-    			&&isnull(oclass)
-    			&&isnull(campus)
-    			&&jianchaminma(opw1,opw2))
+//		console.log('3');
+    		if(isnull_id(oid.value)
+    			&&isnull( opw1.value)
+    			&&isnull(name.value)
+    			&&isnull(field.value)
+    			&&isnull_pn(phoneNum.value)
+    			&&isnull(gender.value)
+    			&&isnull(oclass.value)
+    			&&isnull(campus.value)
+    			&&jianchaminma(opw1.value,opw2.value))
     		{
     			console.log("go！");
     		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
@@ -178,17 +174,27 @@ console.log("mima");
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
+                url: "http://127.0.0.1:3000/app",
+                data: {callbackFun:"getName"},
+                dataType:"jsonp"  //数据格式设置为jsonp
+                //jsonp:"callback"
+            });
 
-                url: "http://127.0.0.1:3000/studentRegister",
-                data: {callbackFun:"getName",
-                stuId:oid,
-                password:opw2,
-                name:name,
-                gender:gender,
-                phoneNum:phoneNum,
-                field:field,
-                class:oclass,
-                campus:campus,
+
+
+            $.ajax({
+                type: "GET",
+                url: "http://58.87.72.83:3000/studentRegister",
+                data: {
+                  callbackFun:"getName",
+                  stuId:"oid",
+                  password:"opw1",
+                  name:"name",
+                  gender:"gender",
+                  phoneNum:"phoneNum",
+                  field:"field",
+                  class:"oclass",
+                  campus:"campus"
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 
@@ -286,14 +292,14 @@ console.log("mima");
 
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/retina-1.1.0.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="./js/jquery-1.11.1.min.js"></script>
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
+        <script src="./js/jquery.backstretch.min.js"></script>
+        <script src="./js/retina-1.1.0.min.js"></script>
+        <script src="./js/scripts.js"></script>
         
         <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
+            <script src="./js/placeholder.js"></script>
         <![endif]-->
 
     </body>
