@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bootstrap Registration Form Template</title>
-
+0
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -87,8 +87,7 @@
   	}
   	function isnull(val) {
 
-      var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-
+     var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
       if (str == '' || str == undefined || str == null) 
       {
           //return true;
@@ -109,14 +108,12 @@
       if (val1!=val2) 
       {
           //return true;
-          console.log('密码不同')
+          console.log('密码不同');
              return false;
       } 
       else {
-          
         	console.log('密码相同');
             return true;
-    		
   			}
      }
 
@@ -145,26 +142,48 @@
     $(document).ready(function () {
 
         $("#btn").click(function () {
-        	var oid = document.getElementById('stuID');
+        	var oid = document.getElementById('stuI');
 			var opw1 = document.getElementById('password');
-			var opw2 = document.getElementById('password-again');
+			var opw2 = document.getElementById('password_again');
+			var name = document.getElementById('name');
+			var phoneNum = document.getElementById('phoneNum');
+			var field = document.getElementById('field');
+			var gender = document.getElementById('gender');
+			var oclass = document.getElementById('class');
+			var campus = document.getElementById('campus');
+			var gender = document.getElementById('gender');
 //		console.log('1');
-  			var oBtn = document.getElementById('login');
+  			var oBtn = document.getElementById('Btn');
 //		console.log('3');
-    		if(isnull_id( oid.value )&&isnull_pw( opw.value))
+    		if(isnull_id(oid.value)
+    			&&isnull( opw1.value)
+    			&&isnull(name.value)
+    			&&isnull(field.value)
+    			&&isnull_pn(phoneNum.value)
+    			&&isnull(gender.value)
+    			&&isnull(oclass.value)
+    			&&isnull(campus.value)
+    			&&jianchaminma(opw1.value,opw2.value))
     		{
     			
-    		
+    		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                url: "http://58.87.72.83:3000/studentLogin",
+                url: "http://58.87.72.83:3000/studentRegister",
                 data: {callbackFun:"getName",
                 stuId:"oid",
-                password:"opw",
+                password:"opw1",
+                name:"name",
+                gender:"gender",
+                phoneNum:"phoneNum",
+                field:"field",
+                class:"oclass",
+                campus:"campus"
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
+                
                 //jsonp:"callback"
             });
            }
@@ -210,16 +229,16 @@
 			                        	
 			                        	<div class="col-sm-3">
 			                        		<label>
-			                        			<input type="radio" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="xingbie">男</input>
+			                        			<input type="radio" value="1" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">男</input>
 			                       			</label>
 			                       			<label>
-			                        			<input type="radio" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="xingbie">女</input>
+			                        			<input type="radio" value="2" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">女</input>
 			                        		</label>
 			                        	</div>
 			                     		</div>
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">stuId</label>
-			                        	<input type="text" id="stuId" name="stuId" placeholder="stuId" class="form-first-name form-control" >
+			                        	<input type="text" id="stuI" name="stuId" placeholder="stuId" class="form-first-name form-control" >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-email">phoneNum</label>
@@ -246,14 +265,14 @@
 			                        	<input type="text" name="password_again" placeholder="password_again" class="form-email form-control" id="password_again">
 			                        </div>
 			                         
-			                    	 <button type="submit" class="btn">Sign me up!</button>
+			                    	 <button type="submit" class="btn" id="btn">Sign me up!</button>
 			                    </form>
 		                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+           
         </div>
 
 
