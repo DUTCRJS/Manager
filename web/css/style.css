@@ -29,7 +29,7 @@ img{max-width:100%;}
 /*-- end reset --*/
 body {
     font-family: 'Open Sans', sans-serif;
-    background: url(../images/2.jpg)no-repeat 0px 0px;
+
     background-attachment: fixed;
 	background-size:cover;
 }
@@ -48,10 +48,17 @@ h2{
     width: 50%;
     margin: 3em auto;
     background-size: cover;
-    -webkit-box-shadow: -8px 8px 7px 0px rgb(3, 3, 3);
-    -moz-box-shadow: -8px 8px 7px 0px rgb(3, 3, 3);
-    box-shadow: -8px 8px 7px 0px rgb(3, 3, 3); 
-	background:#fff;
+
+    /*-moz代表firefox浏览器私有属性
+
+     *-ms代表ie浏览器私有属性
+
+     *-webkit代表safari、chrome私有属性*/
+
+    /*-webkit-box-shadow: -8px 8px 7px 0px rgb(3, 3, 3);*/
+    /*-moz-box-shadow: -8px 8px 7px 0px rgb(3, 3, 3);*/
+    /*box-shadow: -8px 8px 7px 0px rgb(3, 3, 3); */
+    background-color: #cccccc ;
 }
 .w3pay-left {
     float: left;
@@ -60,12 +67,11 @@ h2{
     min-height: 532px;
     text-align: center;
     position: relative;
-	-webkit-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);
-	-moz-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);
-	-o-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);
-	-ms-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);
-    box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);
-	background: url(../images/img1.jpg)no-repeat 0px 0px;
+	/*-webkit-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);*/
+	/*-moz-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);*/
+	/*-o-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);*/
+	/*-ms-box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);*/
+    /*box-shadow: 2px 0px 8px 0px rgb(47, 62, 70);*/
 	background-size:cover 
 } 
 .w3pay-right {
@@ -242,7 +248,7 @@ h2{
     margin-bottom: 5px;
     color: #FF5722;
     letter-spacing: .7px;
-    display: none;
+
 }
 .week:nth-child(1) .day-name {
     display: block;
@@ -642,7 +648,7 @@ h2{
 }
 @media(max-width:1024px){
 #calendar {
-    width: 370px; 
+    width: 370px;
 }
 .day {
     width: 52px;
@@ -734,7 +740,7 @@ h2 {
     width: 90%;
 }
 #calendar {
-    width: 351px;
+    width: 400px;
 }
 .day {
     width: 50px;
@@ -745,7 +751,7 @@ h2 {
 }
 @media(max-width:414px){
 .w3pay-right { 
-    padding: 1.5em; 
+    padding: 1.5em;
 }
 #calendar {
     width:100%;
@@ -799,7 +805,7 @@ h2 {
     font-size: 1.1em;
 }
 .w3pay-left {
-    min-height: 220px;
+    min-height: 0px;
 }
 .header h1 { 
     font-size: 18px; 

@@ -14,7 +14,6 @@
 <!-- web font -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href="//fonts.googleapis.com/css?family=Playfair+Display+SC:400,400i,700,700i,900,900i" rel="stylesheet">
-
 <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/amazeui.min.css" />
 <link rel="stylesheet" href="css/app.css" />
@@ -22,22 +21,42 @@
 <!-- //web font -->
 <style>
     .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
-    </style>
-</head>
+    .day-name {
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: #FF5722;
+        letter-spacing: .7px;
+        display: none;
+        margin-left: -5px;
+        width: 30px;
+    }
+    @media(max-width:414px){
+        .w3pay-right {
+            padding: 1em;
+        }
+
+</style>
+
 <body>
-<header data-am-widget="header" class="am-header tb-header">
-    <div style="text-align: center">日程安排</div>
-    </div>
+<header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
+    <div style="text-align: center ;padding-top: 15px;">日程安排</div>
 </header>
-        <div class="w3pay-right wthree-pay-grid">
+<!-- main -->
+<div class="mainw3-agile">
+    <div class="main-agileinfo">
+
+        <div class="w3pay-right wthree-pay-grid" style="height: 500px; margin-top: 2.5em">
             <div id="calendar"></div>
             <script src="js/moment.min.js"></script>
             <script>
                 !function() {
-
+                    //获取今天日期
                     var today = moment();
 
+                    //jq语法
                     function Calendar(selector, events) {
+                        //返回匹配指定选择器的第一个元素
                         this.el = document.querySelector(selector);
                         this.events = events;
                         this.current = moment().date(1);
@@ -51,13 +70,17 @@
                         }
                     }
 
+                    /*prototype这个位置是js的语法 Calendar是一个函数类对象
+                     *prototype则是函数类对象的属性它的值包含constructer属性且属性值为形函数的对象
+                     *js没有提供构造器 故每个函数都会得到一个prototype的对象
+                     *这个prototype对象是用来存放继承特征的地方
+                     * */
                     Calendar.prototype.draw = function() {
-                        //Create Header
+                        //创建头部
                         this.drawHeader();
-
-                        //Draw Month
+                        //创建月份
                         this.drawMonth();
-
+                        //创建底部颜色识别部分
                         this.drawLegend();
                     }
 
@@ -68,21 +91,25 @@
                             this.header = createElement('div', 'header');
                             this.header.className = 'header';
 
+                            //创建当前月份和年份 例如：Ocober 2018
                             this.title = createElement('h1');
 
+                            //创建左右标签 绑定点击函数 完成上下月份的切换
+                            //self 指窗口本身，它返回的对象跟window对象是一模一样的。
                             var right = createElement('div', 'right');
                             right.addEventListener('click', function() { self.nextMonth(); });
 
                             var left = createElement('div', 'left');
                             left.addEventListener('click', function() { self.prevMonth(); });
 
-                            //Append the Elements
+                            //将这些元素都添加到header中
+                            //整体的el再把header加进去
                             this.header.appendChild(this.title);
                             this.header.appendChild(right);
                             this.header.appendChild(left);
                             this.el.appendChild(this.header);
                         }
-
+                        //这里format是时间格式化函数
                         this.title.innerHTML = this.current.format('MMMM YYYY');
                     }
 
@@ -157,12 +184,12 @@
                             this.month.appendChild(this.week);
                         }
                     }
-
+                    //绘制日期的三部分 day-name day-number day-event
                     Calendar.prototype.drawDay = function(day) {
                         var self = this;
                         this.getWeek(day);
 
-                        //Outer Day
+                        //Outer Day （绑定点击）
                         var outer = createElement('div', this.getDayClass(day));
                         outer.addEventListener('click', function() {
                             self.openDay(this);
@@ -182,8 +209,11 @@
                         outer.appendChild(name);
                         outer.appendChild(number);
                         outer.appendChild(events);
+                        //将做好的日期添加到周之中
                         this.week.appendChild(outer);
+                        console.log("22");
                     }
+
 
                     Calendar.prototype.drawEvents = function(day, element) {
                         if(day.month() === this.current.month()) {
@@ -200,7 +230,7 @@
                             });
                         }
                     }
-
+                    //这个函数是为了设定两种特殊的日期 一个是today 一个是otherday
                     Calendar.prototype.getDayClass = function(day) {
                         classes = ['day'];
                         if(day.month() !== this.current.month()) {
@@ -211,19 +241,22 @@
                         return classes.join(' ');
                     }
 
+                    //创建点击具体日期 然后的相关函数
                     Calendar.prototype.openDay = function(el) {
                         var details, arrow;
                         var dayNumber = +el.querySelectorAll('.day-number')[0].innerText || +el.querySelectorAll('.day-number')[0].textContent;
                         var day = this.current.clone().date(dayNumber);
 
+                        //querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
                         var currentOpened = document.querySelector('.details');
 
-                        //Check to see if there is an open detais box on the current row
+                        //检查当前行中是否有打开的事件下拉框
                         if(currentOpened && currentOpened.parentNode === el.parentNode) {
                             details = currentOpened;
                             arrow = document.querySelector('.arrow');
                         } else {
-                            //Close the open events on differnt week row
+                            //在这次的日期的行中做打开的事件下拉框
+                            //看不懂看不懂 嘤嘤嘤！！！
                             //currentOpened && currentOpened.parentNode.removeChild(currentOpened);
                             if(currentOpened) {
                                 currentOpened.addEventListener('webkitAnimationEnd', function() {
@@ -241,13 +274,13 @@
                                 currentOpened.className = 'details out';
                             }
 
-                            //Create the Details Container
+                            //创建下拉事件框的容器
                             details = createElement('div', 'details in');
 
-                            //Create the arrow
+                            //创建指向日期的三角箭头
                             var arrow = createElement('div', 'arrow');
 
-                            //Create the event wrapper
+                            //创建整个日程事件提示部分
 
                             details.appendChild(arrow);
                             el.parentNode.appendChild(details);
@@ -265,6 +298,7 @@
                         arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
                     }
 
+                    //貌似是事件绑定日期弹框的函数
                     Calendar.prototype.renderEvents = function(events, ele) {
                         //Remove any events in the current details element
                         var currentWrapper = ele.querySelector('.events');
@@ -311,14 +345,15 @@
                         }
                     }
 
+                    //描绘颜色的标注 函数
                     Calendar.prototype.drawLegend = function() {
                         var legend = createElement('div', 'legend');
                         var calendars = this.events.map(function(e) {
                             return e.calendar + '|' + e.color;
                         }).reduce(function(memo, e) {
-                            if(memo.indexOf(e) === -1) {
-                                memo.push(e);
-                            }
+                                if(memo.indexOf(e) === -1) {
+                                    memo.push(e);
+                                }
                             return memo;
                         }, []).forEach(function(e) {
                             var parts = e.split('|');
@@ -326,14 +361,16 @@
                             legend.appendChild(entry);
                         });
                         this.el.appendChild(legend);
+                        console.log("11");
                     }
 
+                    //将窗口内容转换为下一个月内容
                     Calendar.prototype.nextMonth = function() {
                         this.current.add('months', 1);
                         this.next = true;
                         this.draw();
                     }
-
+                    //将窗口内容转换为上一个月内容
                     Calendar.prototype.prevMonth = function() {
                         this.current.subtract('months', 1);
                         this.next = false;
@@ -342,6 +379,8 @@
 
                     window.Calendar = Calendar;
 
+                    //标准的对象元素构建 参数穿的是tag class 和内部文字
+                    //其中tag是必要参数 剩下的要是没有就算了 科科
                     function createElement(tagName, className, innerText) {
                         var ele = document.createElement(tagName);
                         if(className) {
@@ -354,6 +393,7 @@
                     }
                 }();
 
+                //事件的导入 需要写一个api把数据从库里拿出来
                 !function() {
                     var data = [
                         { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
@@ -381,24 +421,29 @@
 
                     }
 
+                    //引入data 创建新的实例对象 改动的时候想办法把自己的data切换进去
                     var calendar = new Calendar('#calendar', data);
 
                 }();
             </script>
         </div>
         <div class="clear">	</div>
+    </div>
+</div>
+<!-- //main -->
+
 
 <div style="height: 58px;"></div>
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  id="">
     <ul class="am-navbar-nav am-cf am-avg-md-4">
         <li>
-            <a href="#" class="curr" style="padding-top: 5px">
+            <a href="notice.html"  style="padding-top: 5px">
                 <img src="imgs/notice.png" height="47" width="65"/>
                 <span class="am-navbar-label" style="padding-top: 5px">通知</span>
             </a>
         </li>
         <li>
-            <a href="#" class=""  style="padding-top: 5px">
+            <a href="#"  class="curr" style="padding-top: 5px">
                 <img src="imgs/calendar.png" height="48" width="48"/>
                 <span class="am-navbar-label" style="padding-top: 5px">日程</span>
             </a>
@@ -411,6 +456,6 @@
         </li>
     </ul>
 </div>
-<!-- //main -->
+
 </body>
 </html>
