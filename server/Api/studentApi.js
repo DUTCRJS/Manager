@@ -23,8 +23,7 @@ exports.createAStudent = function(req,callback) {
         phoneNum:stu.phoneNum,
         field:stu.field,
         class:stu.class,
-        password:stu.password,
-        campus:stu.campus
+        password:stu.password
     }).then(function (p) {
         console.log('created.' + JSON.stringify(p));
         callback({state:1,mag:'注册成功！'});
