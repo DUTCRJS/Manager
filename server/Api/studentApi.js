@@ -121,19 +121,20 @@ exports.studentAllInfo = function (req,callback) {
     var stuId = req.query.stuId;
     // var stuId = "201692077";
     var sql =
-        ' select distinct info.* ' +
-        ' from stulike join infokind on stulike.kind = infokind.kind ' +
-        ' join info on info.infoId = infokind.infoId ' +
-        ' where stuId = "' + stuId + '" ' +
-        ' union ' +
-        ' select distinct info.* ' +
-        ' from stuadd join info on stuadd.infoId = info.infoId ' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind\n' +
+        'from stulike join infokind on stulike.kind = infokind.kind\n' +
+        'join info on info.infoId = infokind.infoId\n' +
         ' where stuId = "'+ stuId +'" ' +
-        ' union ' +
-        ' select distinct info.* ' +
-        ' from stuTea join teainfo on stuTea.teaId = teainfo.teaId ' +
-        ' join info on teainfo.infoId = info.infoId ' +
+        'union\n' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind \n' +
+        'from stuadd join info on stuadd.infoId = info.infoId \n' +
+        ' where stuId = "'+ stuId +'" ' +
+        'union \n' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind\n' +
+        'from stuTea join teainfo on stuTea.teaId = teainfo.teaId \n' +
+        'join info on teainfo.infoId = info.infoId \n' +
         ' where stuId = "'+ stuId +'" ';
+
     manager.sequelize.query(sql).then(function(kinds){
         kinds = kinds[0];
 

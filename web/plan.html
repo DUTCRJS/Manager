@@ -12,8 +12,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
 <!-- web font -->
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href="//fonts.googleapis.com/css?family=Playfair+Display+SC:400,400i,700,700i,900,900i" rel="stylesheet">
+
 <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/amazeui.min.css" />
 <link rel="stylesheet" href="css/app.css" />
@@ -51,7 +50,7 @@
             <div id="calendar"></div>
             <script src="js/moment.min.js"></script>
             <script>
-                !function() {
+                function startFun() {
                     //获取今天日期
                     var today = moment();
 
@@ -61,7 +60,8 @@
                         this.el = document.querySelector(selector);
                         this.events = events;
                         this.current = moment().date(1);
-                        // console.log("current " + this.current.format());
+                        console.log("current " + this.current.format());
+                        // alert("current " + this.current.format());
                         this.draw();
                         var current = document.querySelector('.today');
                         if(current) {
@@ -110,9 +110,13 @@
                             this.header.appendChild(right);
                             this.header.appendChild(left);
                             this.el.appendChild(this.header);
+
+
                         }
                         //这里format是时间格式化函数
                         this.title.innerHTML = this.current.format('MMMM YYYY');
+
+
                     }
 
                     Calendar.prototype.drawMonth = function() {
@@ -122,8 +126,14 @@
                             
                             // ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
                             var dateTemp = ev.pubTime.date();
-                            ev.date = self.current.clone().date(dateTemp);
-                            // console.log("self.current " + self.current);
+                            // if(moment(ev.pubTime).month() == moment(this.current).month() ){
+                            ev.date = moment(ev.pubTime);
+                            console.log("self.current " + self.current.format());
+                            // }else{
+                            //     ev.date = self.current.clone().date(0);
+                            //     // console.log("self.current " + self.current.format());
+                            // }
+                            
                             // console.log("ev.date " + ev.date);
                         });
 
@@ -237,7 +247,6 @@
                             // });
 
                             if(todaysEvents.length>0){
-
 
                                 var evSpan = createElement('span', todaysEvents[0].color);
                                 element.appendChild(evSpan);
@@ -377,7 +386,7 @@
                         // alert( "length " +  );
                         if($("#calendar").find(".legend").length == 0){
                             this.el.appendChild(legend);
-                        console.log("11");
+                        // console.log("11");
                         }
                         
                     }
@@ -409,34 +418,50 @@
                         }
                         return ele;
                     }
-                }();
+                };
 
                 //事件的导入 需要写一个api把数据从库里拿出来
                 !function() {
-                    var data = [];
+                    // var data = [];
+                    $.ajax({
+                        type: "GET",
 
-                    var database = [
-                            {"infoId":1,"title":"2018年创新创业学院实践班和工坊招新录取名单（20181017更新）","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
-                            {"infoId":2,"title":"2018-2019年秋季学期新生选课通知","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"36\"]"},
-                            {"infoId":3,"title":"创新创业学院2017―2018学年创新创业先进表彰名单","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
-                            {"infoId":4,"title":"关于2018年创新实践班与工坊报名的补充通知","pubTime":"2018-10-11","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
-                            {"infoId":5,"title":"","pubTime":null,"startTime":null,"endTime":null,"kind":"[\"39\"]"},
-                            {"infoId":6,"title":"关于2018年创新创业学院研究生综合奖励评定结果公示","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"31\",\"35\"]"},
-                            {"infoId":7,"title":"2018-2019学年秋季学期教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-                            {"infoId":8,"title":"第8周教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-                            {"infoId":9,"title":"关于组织参加“第四届下一代互联网技术创新大赛”的通知","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"21\"]"},
-                            {"infoId":10,"title":"关于调整教授讲座“具身认知与语言理解”时间的通知","pubTime":"2018-10-16","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-                            {"infoId":11,"title":"2017-2018年秋季学期新生选课通知","pubTime":"2017-10-25","startTime":null,"endTime":null,"kind":"[\"36\"]"},
-                            {"infoId":12,"title":"2018年环境与生命创新实践强化班录取名单公布","pubTime":"2018-10-12","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
-                            {"infoId":13,"title":"转发：大学生数学竞赛（辽宁赛区）准考证领取及班车安排","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"11\"]"},
-                            {"infoId":14,"title":"关于2018届本科毕业生9月份证书发放时间的通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-                            {"infoId":15,"title":"创新创业学院2016―2017学年创新创业先进表彰名单","pubTime":"2017-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
-                            {"infoId":16,"title":"「2018科技文化节」开发区校区平面设计大赛通知","pubTime":"2018-10-25","startTime":null,"endTime":null,"kind":"[\"19\"]"},
-                            {"infoId":17,"title":"关于领取第十届全国大学生数学竞赛（辽宁赛区）准考证的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"21\"]"},
-                            {"infoId":18,"title":"通信原理课程调课通知","pubTime":"2018-10-26","startTime":null,"endTime":null,"kind":"[\"16\"]"},
-                            {"infoId":19,"title":"2018环境与生命创新实践强化班招生通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
-                            {"infoId":20,"title":"关于评选软件学院2017-2018学年“自立自强标兵”的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"13\"]"},
-                            {"infoId":21,"title":"第6周教授讲座安排","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"29\"]"}]
+                        url: "http://127.0.0.1:3000/studentAllInfo",
+                        data: {callbackFun:"getName",
+                        stuId:"201692077"
+                        
+                        },
+                        dataType:"jsonp"  //数据格式设置为jsonp
+                        
+                        //jsonp:"callback"
+                    });
+                    
+                }();
+                function getName(database){
+                    console.log(JSON.stringify(database));
+               
+                    // var database = [
+                    //         {"infoId":1,"title":"2018年创新创业学院实践班和工坊招新录取名单（20181017更新）","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
+                    //         {"infoId":2,"title":"2018-2019年秋季学期新生选课通知","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"36\"]"},
+                    //         {"infoId":3,"title":"创新创业学院2017―2018学年创新创业先进表彰名单","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
+                    //         {"infoId":4,"title":"关于2018年创新实践班与工坊报名的补充通知","pubTime":"2018-10-11","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
+                    //         {"infoId":5,"title":"","pubTime":null,"startTime":null,"endTime":null,"kind":"[\"39\"]"},
+                    //         {"infoId":6,"title":"关于2018年创新创业学院研究生综合奖励评定结果公示","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"31\",\"35\"]"},
+                    //         {"infoId":7,"title":"2018-2019学年秋季学期教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                    //         {"infoId":8,"title":"第8周教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                    //         {"infoId":9,"title":"关于组织参加“第四届下一代互联网技术创新大赛”的通知","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"21\"]"},
+                    //         {"infoId":10,"title":"关于调整教授讲座“具身认知与语言理解”时间的通知","pubTime":"2018-10-16","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                    //         {"infoId":11,"title":"2017-2018年秋季学期新生选课通知","pubTime":"2017-10-25","startTime":null,"endTime":null,"kind":"[\"36\"]"},
+                    //         {"infoId":12,"title":"2018年环境与生命创新实践强化班录取名单公布","pubTime":"2018-10-12","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
+                    //         {"infoId":13,"title":"转发：大学生数学竞赛（辽宁赛区）准考证领取及班车安排","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"11\"]"},
+                    //         {"infoId":14,"title":"关于2018届本科毕业生9月份证书发放时间的通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                    //         {"infoId":15,"title":"创新创业学院2016―2017学年创新创业先进表彰名单","pubTime":"2017-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
+                    //         {"infoId":16,"title":"「2018科技文化节」开发区校区平面设计大赛通知","pubTime":"2018-10-25","startTime":null,"endTime":null,"kind":"[\"19\"]"},
+                    //         {"infoId":17,"title":"关于领取第十届全国大学生数学竞赛（辽宁赛区）准考证的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"21\"]"},
+                    //         {"infoId":18,"title":"通信原理课程调课通知","pubTime":"2018-10-26","startTime":null,"endTime":null,"kind":"[\"16\"]"},
+                    //         {"infoId":19,"title":"2018环境与生命创新实践强化班招生通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
+                    //         {"infoId":20,"title":"关于评选软件学院2017-2018学年“自立自强标兵”的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"13\"]"},
+                    //         {"infoId":21,"title":"第6周教授讲座安排","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"29\"]"}]
                     function retKind(kindId){
                         var chuangStr=kindId.indexOf("3");
                         var teacherStr=kindId.indexOf("7");
@@ -477,10 +502,11 @@
                         }
 
                     }
+                    var data = [];
                     database.forEach(function(item){
-                        if(moment(item.pubTime).month() == moment().month()+1){
-                            console.log("moment(item.pubTime).month() "+ moment(item.pubTime).month());
-                            console.log("moment().month()+1 " + moment().month()+1)
+                        // if(moment(item.pubTime).month() == moment().month() ){
+                            // console.log("moment(item.pubTime).month() "+ moment(item.pubTime).month());
+                            // console.log("moment().month()+1 " + moment().month() )
                             var oneData = {};
                             allkind = JSON.parse(item.kind);
                             allkind.forEach(function(kind,index){
@@ -490,14 +516,14 @@
                                 oneData.calendar = kindName;
                                 oneData.color = retColor(kindName);
                                 oneData.infoId = item.infoId;
-
+                                var timeTemp = moment(item.pubTime);
                                 console.log("ssss " + timeTemp);
                                 oneData.pubTime = moment(timeTemp);
                                 oneData.startTime = moment("2018-11-03 12:31:20");
                                 oneData.endTime = moment("2018-11-2 12:31:20");
                                 data.push(oneData);
                             });
-                        }
+                        // }
                         
                         
 
@@ -531,9 +557,10 @@
                     }
 
                     //引入data 创建新的实例对象 改动的时候想办法把自己的data切换进去
+                    startFun()
                     var calendar = new Calendar('#calendar', data);
+                };
 
-                }();
             </script>
         </div>
         <div class="clear">	</div>
