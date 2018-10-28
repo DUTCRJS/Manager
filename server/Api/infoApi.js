@@ -1,7 +1,7 @@
 var info = require('../DB/info');
 var infoKind = require('../DB/infoKind');
 var infoUrl = require('../DB/infourl');
-
+var manager = require('../DB/manager');
 var moment = require('moment');
 
 exports.getAllInfos = function() {
@@ -106,3 +106,14 @@ exports.login = function(user) {
 //     startTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
 //     endTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
 //     content:"内容"});
+
+// exports.getAllInfos();
+// var sql1 =
+//     'select  infoId,title,pubTime,startTime,endTime,kind ' +
+//     'from info';
+// manager.sequelize.query(sql1).then(function (value) {
+//     value[0].forEach(function (item) {
+//         console.log(JSON.stringify(item)+',' );
+//     });
+//
+// });
