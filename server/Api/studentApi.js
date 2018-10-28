@@ -214,6 +214,30 @@ exports.studentSearchInfo = function (req,callback) {
 
     });
 };
+
+exports.kindInfo = function (req,callback) {
+    var kind = req.query.type;
+    var sql='';
+    if(kind === "10" || kind === "20"||kind === "30"){
+        sql =
+            'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+            'from info join infokind on infokind.infoId = info.infoId \n' +
+            'where infokind.kind like "' + str.substr(0, 1) +'%"';
+    }else {
+
+     sql =
+        'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+        'from info join infokind on infokind.infoId = info.infoId \n' +
+        'where infokind.kind = "'+kind+'"';
+    }
+    manager.sequelize.query(sql).then(function (value) {
+        value = value[0];
+        console.log("小类的title " + value);
+        callback(value);
+
+    });
+
+};
 // exports.studentAllInfo();
 //exports.getAllStudents();
 //exports.login({stuId:"201692077",password:"131"});

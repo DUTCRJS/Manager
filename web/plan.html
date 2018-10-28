@@ -64,7 +64,7 @@
                         this.el = document.querySelector(selector);
                         this.events = events;
                         this.current = moment().date(1);
-                        console.log("current " + this.current.format());
+                        // console.log("current " + this.current.format());
                         // alert("current " + this.current.format());
                         this.draw();
                         var current = document.querySelector('.today');
@@ -132,7 +132,7 @@
                             var dateTemp = ev.pubTime.date();
                             // if(moment(ev.pubTime).month() == moment(this.current).month() ){
                             ev.date = moment(ev.pubTime);
-                            console.log("self.current " + self.current.format());
+                            // console.log("self.current " + self.current.format());
                             // }else{
                             //     ev.date = self.current.clone().date(0);
                             //     // console.log("self.current " + self.current.format());
@@ -232,7 +232,7 @@
                         outer.appendChild(events);
                         //将做好的日期添加到周之中
                         this.week.appendChild(outer);
-                        console.log("22");
+                        // console.log("22");
                     }
 
 
@@ -442,7 +442,7 @@
                     
                 }();
                 function getName(database){
-                    console.log(JSON.stringify(database));
+                    // console.log(JSON.stringify(database));
                
                     // var database = [
                     //         {"infoId":1,"title":"2018年创新创业学院实践班和工坊招新录取名单（20181017更新）","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
@@ -521,7 +521,7 @@
                                 oneData.color = retColor(kindName);
                                 oneData.infoId = item.infoId;
                                 var timeTemp = moment(item.pubTime);
-                                console.log("ssss " + timeTemp);
+                                // console.log("ssss " + timeTemp);
                                 oneData.pubTime = moment(timeTemp);
                                 oneData.startTime = moment("2018-11-03 12:31:20");
                                 oneData.endTime = moment("2018-11-2 12:31:20");
