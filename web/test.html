@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Fashion Calendar template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+<!-- Custom Theme files -->
 
 
-</script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<!-- //web font -->
+<style>
+    .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
+    .day-name {
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: #FF5722;
+        letter-spacing: .7px;
+        display: none;
+        margin-left: -5px;
+        width: 30px;
+    }
+    @media(max-width:414px){
+        .w3pay-right {
+            padding: 1em;
+        }
+
+</style>
+
 <body>
-<!-- 选项卡菜单-->
-<ul id="myTab" class="nav nav-pills" role="tablist">
-    <li class="active"><a href="#bulletin" role="tab" data-toggle="pill">公告</a></li>
-    <li><a href="#rule" role="tab" data-toggle="pill">规则</a></li>
-    <li><a href="#forum" role="tab" data-toggle="pill">论坛</a></li>
-    <li><a href="#security" role="tab" data-toggle="pill">安全</a></li>
-    <li><a href="#welfare" role="tab" data-toggle="pill">公益</a></li>
-</ul>
-<!-- 选项卡面板 -->
-<div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade in active" id="bulletin">公告内容面板</div>
-    <div class="tab-pane fade" id="rule">规则内容面板</div>
-    <div class="tab-pane fade" id="forum">论坛内容面板</div>
-    <div class="tab-pane fade" id="security">安全内容面板</div>
-    <div class="tab-pane fade" id="welfare">公益内容面板</div>
-</div>
+<header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
+    <div style="text-align: center ;padding-top: 15px;">日程安排</div>
+</header>
+<script type="text/javascript" src="./js/moment.min.js"></script>
+<script type="text/javascript">
+    var day = moment();
+    alert(day.month()+1);
+</script>
+
 
 </body>
 </html>

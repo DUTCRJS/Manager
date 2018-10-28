@@ -289,6 +289,12 @@ h2{
 .yellow {
 	background: rgba(249, 233, 0, 1);
 } 
+.black {
+  background: rgba(0, 0, 0, 1);
+} 
+.red {
+  background: rgba(255, 0, 0, 1);
+} 
 .details {
   position: relative;
   width: 100%;
@@ -425,7 +431,12 @@ h2{
   background: rgba(249, 233, 0, 1);
 }
 
-
+.entry.red:after {
+  background: rgba(255, 0, 0, 1);
+}
+.entry.black:after {
+  background: rgba(0, 0, 0, 1);
+}
 /* Animations are cool!  */
 
 @-webkit-keyframes moveFromTopFade {

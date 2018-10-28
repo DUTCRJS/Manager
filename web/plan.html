@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/amazeui.min.css" />
 <link rel="stylesheet" href="css/app.css" />
 
+<script type="text/javascript" src="./js/jquery.min.js"></script>
 <!-- //web font -->
 <style>
     .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
@@ -64,6 +65,7 @@
                         this.el = document.querySelector(selector);
                         this.events = events;
                         this.current = moment().date(1);
+                        // console.log("current " + this.current.format());
                         this.draw();
                         var current = document.querySelector('.today');
                         if(current) {
@@ -121,7 +123,12 @@
                         var self = this;
 
                         this.events.forEach(function(ev) {
-                            ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+                            
+                            // ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+                            var dateTemp = ev.pubTime.date();
+                            ev.date = self.current.clone().date(dateTemp);
+                            // console.log("self.current " + self.current);
+                            // console.log("ev.date " + ev.date);
                         });
 
 
@@ -228,10 +235,17 @@
                                 return memo;
                             }, []);
 
-                            todaysEvents.forEach(function(ev) {
-                                var evSpan = createElement('span', ev.color);
+                            // todaysEvents.forEach(function(ev) {
+                            //     var evSpan = createElement('span', ev.color);
+                            //     element.appendChild(evSpan);
+                            // });
+
+                            if(todaysEvents.length>0){
+
+
+                                var evSpan = createElement('span', todaysEvents[0].color);
                                 element.appendChild(evSpan);
-                            });
+                            }
                         }
                     }
                     //这个函数是为了设定两种特殊的日期 一个是today 一个是otherday
@@ -355,17 +369,21 @@
                         var calendars = this.events.map(function(e) {
                             return e.calendar + '|' + e.color;
                         }).reduce(function(memo, e) {
-                                if(memo.indexOf(e) === -1) {
-                                    memo.push(e);
-                                }
+                            if(memo.indexOf(e) === -1) {
+                                memo.push(e);
+                            }
                             return memo;
                         }, []).forEach(function(e) {
                             var parts = e.split('|');
                             var entry = createElement('span', 'entry ' +  parts[1], parts[0]);
                             legend.appendChild(entry);
                         });
-                        this.el.appendChild(legend);
+                        // alert( "length " +  );
+                        if($("#calendar").find(".legend").length == 0){
+                            this.el.appendChild(legend);
                         console.log("11");
+                        }
+                        
                     }
 
                     //将窗口内容转换为下一个月内容
@@ -399,27 +417,118 @@
 
                 //事件的导入 需要写一个api把数据从库里拿出来
                 !function() {
-                    var data = [
-                        { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-                        { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
-                        { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
-                        { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
+                    var data = [];
 
-                        { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-                        { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-                        { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-                        { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
+                    var database = [
+                            {"infoId":1,"title":"2018年创新创业学院实践班和工坊招新录取名单（20181017更新）","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
+                            {"infoId":2,"title":"2018-2019年秋季学期新生选课通知","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"36\"]"},
+                            {"infoId":3,"title":"创新创业学院2017―2018学年创新创业先进表彰名单","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
+                            {"infoId":4,"title":"关于2018年创新实践班与工坊报名的补充通知","pubTime":"2018-10-11","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
+                            {"infoId":5,"title":"","pubTime":null,"startTime":null,"endTime":null,"kind":"[\"39\"]"},
+                            {"infoId":6,"title":"关于2018年创新创业学院研究生综合奖励评定结果公示","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"31\",\"35\"]"},
+                            {"infoId":7,"title":"2018-2019学年秋季学期教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                            {"infoId":8,"title":"第8周教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                            {"infoId":9,"title":"关于组织参加“第四届下一代互联网技术创新大赛”的通知","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"21\"]"},
+                            {"infoId":10,"title":"关于调整教授讲座“具身认知与语言理解”时间的通知","pubTime":"2018-10-16","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                            {"infoId":11,"title":"2017-2018年秋季学期新生选课通知","pubTime":"2017-10-25","startTime":null,"endTime":null,"kind":"[\"36\"]"},
+                            {"infoId":12,"title":"2018年环境与生命创新实践强化班录取名单公布","pubTime":"2018-10-12","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
+                            {"infoId":13,"title":"转发：大学生数学竞赛（辽宁赛区）准考证领取及班车安排","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"11\"]"},
+                            {"infoId":14,"title":"关于2018届本科毕业生9月份证书发放时间的通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"29\"]"},
+                            {"infoId":15,"title":"创新创业学院2016―2017学年创新创业先进表彰名单","pubTime":"2017-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
+                            {"infoId":16,"title":"「2018科技文化节」开发区校区平面设计大赛通知","pubTime":"2018-10-25","startTime":null,"endTime":null,"kind":"[\"19\"]"},
+                            {"infoId":17,"title":"关于领取第十届全国大学生数学竞赛（辽宁赛区）准考证的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"21\"]"},
+                            {"infoId":18,"title":"通信原理课程调课通知","pubTime":"2018-10-26","startTime":null,"endTime":null,"kind":"[\"16\"]"},
+                            {"infoId":19,"title":"2018环境与生命创新实践强化班招生通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
+                            {"infoId":20,"title":"关于评选软件学院2017-2018学年“自立自强标兵”的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"13\"]"},
+                            {"infoId":21,"title":"第6周教授讲座安排","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"29\"]"}]
+                    function retKind(kindId){
+                        var chuangStr=kindId.indexOf("3");
+                        var teacherStr=kindId.indexOf("7");
+                        var studentStr=kindId.indexOf("8");
+                    
+                        if(kindId == "11" || chuangStr==0){
+                            return "科创竞赛";
+                        }else if(kindId == "12" || kindId == "14" ||kindId == "21" ){
+                            return "文体实践";
+                        }else if(kindId == "13" ||kindId ==  "13"){
+                            return "评奖竞选";
+                        }else if(kindId == "16" ){
+                            return "课程考试";
+                        }else if(teacherStr == 0 || studentStr == 0){
+                            return "个人生活";
+                        }else if(kindId == "15" || kindId == "17" || kindId == "19"){
+                            return "其他";
+                        }else{
+                            return "其他";
+                        }
 
-                        { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-                        { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-                        { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-                        { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
+                    }
 
-                        { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green' },
-                        { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
-                        { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
-                        { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
-                    ];
+                    function retColor(kindName){
+            
+                        if(kindName == "科创竞赛"){
+                            return "orange";
+                        }else if(kindName == "文体实践"){
+                            return "blue";
+                        }else if(kindName == "评奖竞选"){
+                            return "yellow";
+                        }else if(kindName == "课程考试"){
+                            return "green";
+                        }else if(kindName == "个人生活"){
+                            return "black";
+                        }else if(kindName == "其他"){
+                            return "red";
+                        }
+
+                    }
+                    database.forEach(function(item){
+                        if(moment(item.pubTime).month() == moment().month()+1){
+                            console.log("moment(item.pubTime).month() "+ moment(item.pubTime).month());
+                            console.log("moment().month()+1 " + moment().month()+1)
+                            var oneData = {};
+                            allkind = JSON.parse(item.kind);
+                            allkind.forEach(function(kind,index){
+
+                                var kindName = retKind(kind);
+                                oneData.eventName = item.title;
+                                oneData.calendar = kindName;
+                                oneData.color = retColor(kindName);
+                                oneData.infoId = item.infoId;
+
+                                console.log("ssss " + timeTemp);
+                                oneData.pubTime = moment(timeTemp);
+                                oneData.startTime = moment("2018-11-03 12:31:20");
+                                oneData.endTime = moment("2018-11-2 12:31:20");
+                                data.push(oneData);
+                            });
+                        }
+                        
+                        
+
+                    });
+                    // var data = [
+                    //     { eventName: 'Lunch Meeting w/ Mark', calendar: '科创竞赛', color: 'orange' },
+                    //     // { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
+                    //     // { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
+                    //     // { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
+
+                    //     { eventName: 'Game vs Portalnd', calendar: '文体实践', color: 'blue' },
+                    //     // { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
+                    //     // { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
+                    //     // { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
+
+                    //     { eventName: 'School Play', calendar: '评奖竞选', color: 'yellow' },
+                    //     // { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
+                    //     // { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
+                    //     // { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
+
+                    //     { eventName: 'Free Tamale Night', calendar: '课程考试', color: 'green' },
+                    //     // { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
+                    //     // { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
+                    //     { eventName: 'Startup Weekend', calendar: '个人生活', color: 'black' },
+                    //     { eventName: 'Startup Weekend', calendar: '其他', color: 'red' }
+                      
+                    // ];
 
                     function addDate(ev) {
 
