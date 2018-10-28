@@ -8,8 +8,41 @@
 <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/amazeui.min.css" />
 <link rel="stylesheet" href="css/app.css" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
+
+<link href="js/jquery.popmenu.js" rel="script">
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<style>
+    #container{
+        max-width: 200px;
+        width: 100%;
+        margin: 20px auto;
+    }
+    #demo_box{
+        width: 200px;
+    }
+    .fa{
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .fa-bars{
+        color: #3498db;
+    }
+    .pop_ctrl{
+        width:30px;
+        float: right;
+        margin-top: -35px;
+        margin-right: 0px;
+    }
+    pre{
+        font-family: Consolas,Liberation Mono,Courier,monospace;
+        font-size: 13px;
+    }
+    @media screen and (orientation: portrait){
+        pre{
+            overflow-x: scroll;
+        }
+    }
+</style>
 <style>
     .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
     .am-header{position:relative;width:100%;height:90px;line-height:49px;padding:0 10px}
@@ -32,6 +65,9 @@
     }
 
 </style>
+
+
+
 <body>
     <header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
     <div style="text-align: center">通知公告</div>
@@ -68,20 +104,20 @@
 
 <div style="height: 100px;"></div>
 <div data-am-widget="nav" class="am-nav"  id="">
-    <ul class=" nav am-nav-tabs am-avg-sm-3" style="padding-left: 20px">
-        <li style="padding-left: 10px;">
+    <ul class=" nav am-nav-tabs am-avg-sm-3" style="padding-left: 20px" id="infoKind">
+        <li style="padding-left: 10px;" id="school" state="false">
             <a href="#" >
                 <img src="imgs/school.png" height="36" width="36" style="margin-left: 15px;"/>
              <label   class="am-navbar-label">学校通知</label>
             </a>
         </li>
-        <li>
+        <li id="campus" state="false">
             <a href="#" class="">
                 <img src="imgs/campus.png" height="36" width="36" style="margin-left: 15px;"/>
                 <label class="am-navbar-label" >学院通知</label>
             </a>
         </li>
-        <li>
+        <li id="create" state="false">
             <a href="#" class="">
                 <img src="imgs/inova.png" height="36" width="36" style="margin-left: 15px;"/>
                 <label   class="am-navbar-label" >创新创业</label>
@@ -89,315 +125,98 @@
         </li>
     </ul>
 </div>
-<!--<div  class="row container">-->
-    <!--<div>-->
-        <!--<ul class="nav nav-tabs" >-->
-            <!--<li class="active col-sm-3" style="padding: 10px 5px"><a href="#"><img src="imgs/school.png" height="30" width="30"/>   学校通知</a> </li>-->
-            <!--<li class="col-sm-3" style="padding: 10px 5px"><a href="#"><img src="imgs/campus.png" height="30" width="30"/>   学院通知</a> </li>-->
-            <!--<li class="col-sm-3" style="padding: 10px 5px"><a href="#"><img src="imgs/inova.png" height="30" width="30"/>   创新创业</a> </li>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</div>-->
 
+
+
+    </div>
     <div class="container col-md-8 col-md-offset-3">
         <div class="container">
             <div class="row">
-
                     <ul class="breadcrumb  col-md-6">
-
                         <li>
                             <a href="#">学院通知</a> <span class="divider">></span>
                         </li>
                         <li>
                             <a href="#">实践评奖</a></span></li>
-                        <p style="display: inline-block ;float: right">
-                            <img src="imgs/菜单.png" height="30" width="30"/></p>
-            </div>
+                        <div id="demo_box" style="float: right;z-index:9999;position: relative;">
+                        <div class="pop_ctrl"><i class="fa fa-bars"></i></div>
+                        <ul id="demo_ul">
+                            <li class="demo_li"><div><i class="fa fa-home"></i></div><div style="font-size: 14px;">全部内容</div></li>
+                            <li class="demo_li"><div><i class="fa fa-cloud"></i></div><div  style="font-size: 14px;">课程考试</div></li>
+                            <li class="demo_li"><div><i class="fa fa-cog"></i></div><div  style="font-size: 14px;">科创竞赛</div></li>
+                            <li class="demo_li"><div><i class="fa fa-envelope"></i></div><div  style="font-size: 14px;">文体活动</div></li>
+                            <li class="demo_li"><div><i class="fa fa-clock-o"></i></div><div  style="font-size: 14px;">社会实践</div></li>
+                            <li class="demo_li"><div><i class="fa fa-folder"></i></div><div  style="font-size: 14px;">评奖竞选</div></li>
+                            <li class="demo_li"><div><i class="fa fa-heart-o"></i></div><div  style="font-size: 14px;">通知公示</div></li>
+                            <li class="demo_li"><div><i class="fa fa-mobile"></i></div><div  style="font-size: 14px;">其他</div></li>
+                        </ul>
+                    </div>
                     </ul>
-
                 </div>
+        </div>
+    </div>
+    <div class="container col-md-8 col-md-offset-3"  >
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
+        <div class="panel panel-default">
+            <div>
+           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
+            </div>
+            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        </div>
 
+    </div>
 
-
-
-<div class="siminfo" >
-        <a class="infotitle " href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div><div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-<div class="siminfo" >
-        <a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        <p class="infoPubtime"> 2018-10-19 </p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+<!--<div class="siminfo" >-->
+        <!--<a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>-->
+        <!--<p class="infoPubtime"> 2018-10-19 </p>-->
+<!--</div>-->
 
 
 
@@ -427,5 +246,72 @@
         </li>
     </ul>
 </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.popmenu.js"></script>
+<script>
+    var current ;
+    $(function(){
+
+        $('#demo_box').popmenu();
+        console.log("成功");
+
+    });
+
+
+    $("#school").click(function () {
+        $(this).attr("state","true");
+        // alert( $(this).attr("state") );
+        var allkind = $("#infoKind").children("li");
+        allkind.each(function (item) {
+            if($(this).attr("state") === "true"){
+                current = $(this).attr("id");
+            }
+            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
+        })
+    });
+
+    $("#campus").click(function () {
+        $(this).attr("state","true");
+        // alert( $(this).attr("state") );
+        var allkind = $("#infoKind").children("li");
+        allkind.each(function (item) {
+            if($(this).attr("state") === "true"){
+                current = $(this).attr("id");
+            }
+            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
+        })
+    });
+
+    $("#education").click(function () {
+        $(this).attr("state","true");
+        // alert( $(this).attr("state") );
+        var allkind = $("#infoKind").children("li");
+        allkind.each(function (item) {
+            if($(this).attr("state") === "true"){
+                current = $(this).attr("id");
+            }
+            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
+        })
+    });
+    // fa-home 全部内容
+    $(".fa-home").click(function () {
+        alert("current " + current);
+        if(current === "school"){
+            ajax
+            {
+                type:"20"
+            }
+        }
+    })
+    // fa-cloud 课程考试
+    //  fa-cog 科创竞赛
+    //  fa-envelope 文体活动
+    //  fa-clock-o 社会实践
+    //  fa-folder 评奖竞选
+    // <li class="demo_li"><div><i class="fa fa-heart-o"></i></div><div  style="font-size: 14px;">通知公示</div></li>
+    // <li class="demo_li"><div><i class="fa fa-mobile">
+</script>
+
 </body>
 </html>
