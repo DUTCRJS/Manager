@@ -96,15 +96,20 @@ exports.getAllInfo = function(stuId) {
 exports.studentPrefer = function (req,callback) {
    var stuPre = req.query;
    var sql =
-       ' DELETE FROM stulike\n' +
-       ' WHERE stuId = " '+ stuPre.stuId+'";' ;
-       stuPre.prefer.forEach(function (value) {
-           sql += ' INSERT INTO stulike VALUES("'+stuPre.stuId+'"," '+ value +'");';
-       });
+       ' DELETE FROM stulike ' +
+       ' WHERE stuId = "'+ stuPre.stuId+'"; ' ;
+
 
    manager.sequelize.query(sql).then(function(kinds) {
 
-       console.log("ret " + JSON.stringify(kinds));
+       JSON.parse(stuPre.prefer).forEach(function (value) {
+           sql1 = '';
+           sql1 += ' INSERT INTO stulike VALUES("'+stuPre.stuId+'","'+ value +'"); ';
+           console.log("stulikesql " + sql1);
+           manager.sequelize.query(sql1).then(function (value) {
+               console.log("ret " + JSON.stringify(value));
+           })
+       });
        callback({state:1,msg:'学生偏好设置成功！'})
 
    })
