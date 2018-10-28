@@ -31,6 +31,7 @@
 
     </head>
  <script type="text/javascript" src="assets/js/jquery.min.js" ></script>
+	<!--<script type="text/javascript" src="js/jquery.min.js" ></script>-->
   <script>
    
  	 function isnull_id(val) {
@@ -130,7 +131,7 @@ console.log("mima");
         if(data.state=="1")
         {
         	console.log("成功！");
-        	window.location.href='../plan.html';
+        	window.location.href='../studentPrefer/index.html';
         }
        
          if(data.state=="0")
@@ -158,6 +159,7 @@ console.log("mima");
 		console.log("gender " + gender);
   			var oBtn = document.getElementById('Btn');
 		console.log('3');
+		
 
 
 
@@ -173,13 +175,14 @@ console.log("mima");
     			&&jianchaminma(opw1,opw2))
     		{
     			console.log("go！");
+    			console.log(oid);
     		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
 
-                url: "http://127.0.0.1:3000/studentRegister",
+                url: "http://58.87.72.83:3000/studentRegister",
                 data: {callbackFun:"getName",
                 stuId:oid,
                 password:opw2,
@@ -194,7 +197,7 @@ console.log("mima");
                 
                 //jsonp:"callback"
             });
-            console.log("gogogo！");
+            console.log("gogo！");
            }
         });
 
@@ -286,7 +289,7 @@ console.log("mima");
 
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/retina-1.1.0.min.js"></script>

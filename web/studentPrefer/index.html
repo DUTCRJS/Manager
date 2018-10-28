@@ -34,6 +34,7 @@
 
     </head>
  <script type="text/javascript" src="jquery.min.js" ></script>
+    <script type="text/javascript" src="js/index.js" ></script>
   <script>
    
  	
@@ -70,22 +71,25 @@
 			var arrayObj = new Array();　
 		
 			 $("li").click(function(){
-					console.log("kechuang");
   					$(this).toggleClass('selected');
- 					 if ($('li.selected').length == 0)
+                 console.log(this.id);
+                 var index = arrayObj.indexOf(this.value);
+                 if (index > -1) {
+                     console.log("--");
+                     arrayObj.splice(index,1);
+                     console.log("--");
+                 }
+                 else
+                 {
+                     console.log("++");
+                     arrayObj.push(this.value);
+                 }
+                     if ($('li.selected').length == 0)
  					 {
- 					 	console.log("---");
- 					 	console.log(this.value);
- 					 	arrayObj.remove(this.value);
- 					 	console.log("删除成功");
   					  $('.select').removeClass('selected');
   					 }
  					 else
  					 {
- 					 	console.log("+++");
- 					 	console.log(this.value);
- 					 	arrayObj.push(this.value);
- 					 	console.log("添加成功");
  					   $('.select').addClass('selected');
  					  }
  					 counter();
@@ -94,7 +98,7 @@
         	
 	
 //		console.log('1');
-  			var oBtn = document.getElementById('bbtn');
+//   			var oBtn = document.getElementById('bbtn');
 //		console.log('3');
     		
     			console.log("go！");
@@ -102,15 +106,16 @@
     		 $.ajax({
                 type: "GET",
                 url: "http://58.87.72.83:3000/studentPrefer",
-                data: {callbackFun:"getName",
-                prefer:arrayObj,
-                stuId:stuId,
+                data: {
+                    callbackFun:"getName",
+                    prefer:JSON.stringify(arrayObj),
+                    stuId:"20169077",
                 
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 //jsonp:"callback"
             //向头部输入一个脚本，该脚本发起一个跨域请求
-//          $.ajax({
+     //         $.ajax({
 //              type: "GET",
 //              url: "http://58.87.72.83:3000/studentRegister",
 //              data: {
@@ -174,7 +179,7 @@
 <ul style="width:100%; background-color: red;">
 
   <li style="width:40%" id="kechuang" value="11"><img src="11287113923_57d37ed9d3_q.jpg" /></li>
-  <li style="width:40%";float:left" id="wenti" value="12"><img src="8095683964_9e27753908_q.jpg" /></li>
+  <li style="width:40%;float:left" id="wenti" value="12"><img src="8095683964_9e27753908_q.jpg" /></li>
   <li style="width:40%" id="pingjiangjingxuan" value="13"><img src="8018956825_67bf62c098_q.jpg" /></li>
   <li style="width:40%;float:left" id="shijian" value="14"><img src="7587738254_707a32f27b_q.jpg" /></li>
   <li style="width:40%" id="gongshi" value="15"><img src="8095680852_893f685cbd_q.jpg" /></li>
@@ -182,9 +187,9 @@
   <li style="width:40%" id="qita" value="10"><img src="7445019824_914dea4ac3_q.jpg" /></li>
 </ul>
 
-  <script src='js/jquery.js'></script>
+  <!--<script src='js/jquery.js'></script>-->
 
-  <script src="js/index.js"></script>
+
 			                         
 			                    	 <button type="button" class="btn" id="bbtn">Sign me up!</button>
 			                    </form>
@@ -198,7 +203,7 @@
 
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/retina-1.1.0.min.js"></script>
