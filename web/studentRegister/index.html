@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="assets/css/form-elements.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -145,9 +145,9 @@
     $(document).ready(function () {
 
         $("#btn").click(function () {
-        	var oid = document.getElementById('stuID').value();
-			var opw1 = document.getElementById('password').value();
-			var opw2 = document.getElementById('password-again').value();
+        	var oid = document.getElementById('stuID');
+			var opw1 = document.getElementById('password');
+			var opw2 = document.getElementById('password-again');
 //		console.log('1');
   			var oBtn = document.getElementById('login');
 //		console.log('3');
@@ -159,11 +159,10 @@
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:3000/studentRegister",
-                data: {
-                  callbackFun:"getName",
-                  stuId: "222",
-                  password: "121212"
+                url: "http://58.87.72.83:3000/studentLogin",
+                data: {callbackFun:"getName",
+                stuId:"oid",
+                password:"opw",
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 //jsonp:"callback"

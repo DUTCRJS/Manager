@@ -117,11 +117,7 @@
                         var self = this;
 
                         this.events.forEach(function(ev) {
-                            
-                            // ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
                             ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
-                            console.log("self.current " + self.current);
-                            console.log("ev.date " + ev.date);
                         });
 
 
@@ -399,29 +395,6 @@
 
                 //事件的导入 需要写一个api把数据从库里拿出来
                 !function() {
-                    var database = [
-{"infoId":1,"title":"2018年创新创业学院实践班和工坊招新录取名单（20181017更新）","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
-{"infoId":2,"title":"2018-2019年秋季学期新生选课通知","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"36\"]"},
-{"infoId":3,"title":"创新创业学院2017―2018学年创新创业先进表彰名单","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
-{"infoId":4,"title":"关于2018年创新实践班与工坊报名的补充通知","pubTime":"2018-10-11","startTime":null,"endTime":null,"kind":"[\"31\",\"34\"]"},
-{"infoId":5,"title":"","pubTime":null,"startTime":null,"endTime":null,"kind":"[\"39\"]"},
-{"infoId":6,"title":"关于2018年创新创业学院研究生综合奖励评定结果公示","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"31\",\"35\"]"},
-{"infoId":7,"title":"2018-2019学年秋季学期教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-{"infoId":8,"title":"第8周教授讲座安排","pubTime":"2018-10-19","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-{"infoId":9,"title":"关于组织参加“第四届下一代互联网技术创新大赛”的通知","pubTime":"2018-10-17","startTime":null,"endTime":null,"kind":"[\"21\"]"},
-{"infoId":10,"title":"关于调整教授讲座“具身认知与语言理解”时间的通知","pubTime":"2018-10-16","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-{"infoId":11,"title":"2017-2018年秋季学期新生选课通知","pubTime":"2017-10-25","startTime":null,"endTime":null,"kind":"[\"36\"]"},
-{"infoId":12,"title":"2018年环境与生命创新实践强化班录取名单公布","pubTime":"2018-10-12","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
-{"infoId":13,"title":"转发：大学生数学竞赛（辽宁赛区）准考证领取及班车安排","pubTime":"2018-10-24","startTime":null,"endTime":null,"kind":"[\"11\"]"},
-{"infoId":14,"title":"关于2018届本科毕业生9月份证书发放时间的通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"29\"]"},
-{"infoId":15,"title":"创新创业学院2016―2017学年创新创业先进表彰名单","pubTime":"2017-10-17","startTime":null,"endTime":null,"kind":"[\"31\"]"},
-{"infoId":16,"title":"「2018科技文化节」开发区校区平面设计大赛通知","pubTime":"2018-10-25","startTime":null,"endTime":null,"kind":"[\"19\"]"},
-{"infoId":17,"title":"关于领取第十届全国大学生数学竞赛（辽宁赛区）准考证的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"21\"]"},
-{"infoId":18,"title":"通信原理课程调课通知","pubTime":"2018-10-26","startTime":null,"endTime":null,"kind":"[\"16\"]"},
-{"infoId":19,"title":"2018环境与生命创新实践强化班招生通知","pubTime":"2018-09-29","startTime":null,"endTime":null,"kind":"[\"21\",\"24\"]"},
-{"infoId":20,"title":"关于评选软件学院2017-2018学年“自立自强标兵”的通知","pubTime":"2018-10-23","startTime":null,"endTime":null,"kind":"[\"13\"]"},
-{"infoId":21,"title":"第6周教授讲座安排","pubTime":"2018-10-08","startTime":null,"endTime":null,"kind":"[\"29\"]"}]
-
                     var data = [
                         { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
                         { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
