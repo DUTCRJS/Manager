@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
+		    <link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,7 +30,8 @@
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
     </head>
- <script type="text/javascript" src="../js/jquery.min.js" ></script>
+ <script type="text/javascript" src="assets/js/jquery.min.js" ></script>
+	<!--<script type="text/javascript" src="js/jquery.min.js" ></script>-->
   <script>
    
  	 function isnull_id(val) {
@@ -87,8 +88,7 @@
   	}
   	function isnull(val) {
 
-      var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-
+     var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
       if (str == '' || str == undefined || str == null) 
       {
           //return true;
@@ -105,18 +105,16 @@
   	function jianchaminma(val1,val2) {
 
 //    var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-
+console.log("mima");
       if (val1!=val2) 
       {
           //return true;
-          console.log('密码不同')
+          console.log('密码不同');
              return false;
       } 
       else {
-          
         	console.log('密码相同');
             return true;
-    		
   			}
      }
 
@@ -125,14 +123,15 @@
 
     //回调函数
     function getName(data){
+    	console.log("get");
         console.log(data.state);
         
 		console.log(JSON.stringify(data));
-        //alert("sucess " + JSON.stringify(data));
+        alert("sucess " + JSON.stringify(data));
         if(data.state=="1")
         {
         	console.log("成功！");
-        	window.location.href='../plan.html';
+        	window.location.href='../studentPrefer/index.html';
         }
        
          if(data.state=="0")
@@ -145,28 +144,60 @@
     $(document).ready(function () {
 
         $("#btn").click(function () {
-        	var oid = document.getElementById('stuID');
-			var opw1 = document.getElementById('password');
-			var opw2 = document.getElementById('password-again');
-//		console.log('1');
-  			var oBtn = document.getElementById('login');
-//		console.log('3');
-    		if(isnull_id( oid.value )&&isnull_pw( opw.value))
+
+      var oid = $('#stuI').val();
+			var opw1 = $('#password').val();
+			var opw2 = $('#password_again').val();
+			var name = $('#name').val();
+			var phoneNum = $('#phoneNum').val();
+			var field = $('#field').val();
+			var gender = $('#gender').val();
+			var oclass = $('#class').val();
+			var campus = $('#campus').val();
+			var gender = $('#gender').val();
+
+		console.log("gender " + gender);
+  			var oBtn = document.getElementById('Btn');
+		console.log('3');
+		
+
+
+
+
+    		if(isnull_id(oid)
+    			&&isnull( opw1)
+    			&&isnull(name)
+    			&&isnull(field)
+    			&&isnull_pn(phoneNum)
+    			&&isnull(gender)
+    			&&isnull(oclass)
+    			&&isnull(campus)
+    			&&jianchaminma(opw1,opw2))
     		{
-    			
-    		
+    			console.log("go！");
+    			console.log(oid);
+    		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                url: "http://58.87.72.83:3000/studentLogin",
+
+                url: "http://58.87.72.83:3000/studentRegister",
                 data: {callbackFun:"getName",
-                stuId:"oid",
-                password:"opw",
+                stuId:oid,
+                password:opw2,
+                name:name,
+                gender:gender,
+                phoneNum:phoneNum,
+                field:field,
+                class:oclass,
+                campus:campus,
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
+                
                 //jsonp:"callback"
             });
+            console.log("gogo！");
            }
         });
 
@@ -210,16 +241,16 @@
 			                        	
 			                        	<div class="col-sm-3">
 			                        		<label>
-			                        			<input type="radio" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="xingbie">男</input>
+			                        			<input type="radio" value="男" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">男</input>
 			                       			</label>
 			                       			<label>
-			                        			<input type="radio" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="xingbie">女</input>
+			                        			<input type="radio" value="女" name="campus" placeholder="radio" class="col-sm-2 form-email form-control" style="width:70px; float:left" id="gender">女</input>
 			                        		</label>
 			                        	</div>
 			                     		</div>
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">stuId</label>
-			                        	<input type="text" id="stuId" name="stuId" placeholder="stuId" class="form-first-name form-control" >
+			                        	<input type="text" id="stuI" name="stuId" placeholder="stuId" class="form-first-name form-control" >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-email">phoneNum</label>
@@ -246,19 +277,19 @@
 			                        	<input type="text" name="password_again" placeholder="password_again" class="form-email form-control" id="password_again">
 			                        </div>
 			                         
-			                    	 <button type="submit" class="btn">Sign me up!</button>
+			                    	 <button type="submit" class="btn" id="btn">Sign me up!</button>
 			                    </form>
 		                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+           
         </div>
 
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/retina-1.1.0.min.js"></script>

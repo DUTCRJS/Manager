@@ -145,8 +145,19 @@ router.get('/studentSearchInfo', function(req, res, next) {
     });
 
 });
+// 返回各类通知小类别
+router.get('/kindInfo', function(req, res, next) {
+    console.log("kindInfo");
 
+    studentApi.kindInfo( req , function (data) {
+        var callbackFun = req.query.callbackFun;
+        console.log("callbackFun : " + callbackFun);
+        var ret = callbackFun + "("+ JSON.stringify(data)+ ")";
+        res.end(ret);
 
+    });
+
+});
 //跨域Demo
 router.get('/jsonp', function(req, res, next) {
     console.log("shoudao3");

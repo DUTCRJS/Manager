@@ -23,7 +23,8 @@ exports.createAStudent = function(req,callback) {
         phoneNum:stu.phoneNum,
         field:stu.field,
         class:stu.class,
-        password:stu.password
+        password:stu.password,
+        campus:stu.campus
     }).then(function (p) {
         console.log('created.' + JSON.stringify(p));
         callback({state:1,mag:'注册成功！'});
@@ -95,15 +96,20 @@ exports.getAllInfo = function(stuId) {
 exports.studentPrefer = function (req,callback) {
    var stuPre = req.query;
    var sql =
-       ' DELETE FROM stulike\n' +
-       ' WHERE stuId = " '+ stuPre.stuId+'";' ;
-       stuPre.prefer.forEach(function (value) {
-           sql += ' INSERT INTO stulike VALUES("'+stuPre.stuId+'"," '+ value +'");';
-       });
+       ' DELETE FROM stulike ' +
+       ' WHERE stuId = "'+ stuPre.stuId+'"; ' ;
+
 
    manager.sequelize.query(sql).then(function(kinds) {
 
-       console.log("ret " + JSON.stringify(kinds));
+       JSON.parse(stuPre.prefer).forEach(function (value) {
+           sql1 = '';
+           sql1 += ' INSERT INTO stulike VALUES("'+stuPre.stuId+'","'+ value +'"); ';
+           console.log("stulikesql " + sql1);
+           manager.sequelize.query(sql1).then(function (value) {
+               console.log("ret " + JSON.stringify(value));
+           })
+       });
        callback({state:1,msg:'学生偏好设置成功！'})
 
    })
@@ -115,19 +121,20 @@ exports.studentAllInfo = function (req,callback) {
     var stuId = req.query.stuId;
     // var stuId = "201692077";
     var sql =
-        ' select distinct info.* ' +
-        ' from stulike join infokind on stulike.kind = infokind.kind ' +
-        ' join info on info.infoId = infokind.infoId ' +
-        ' where stuId = "' + stuId + '" ' +
-        ' union ' +
-        ' select distinct info.* ' +
-        ' from stuadd join info on stuadd.infoId = info.infoId ' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind\n' +
+        'from stulike join infokind on stulike.kind = infokind.kind\n' +
+        'join info on info.infoId = infokind.infoId\n' +
         ' where stuId = "'+ stuId +'" ' +
-        ' union ' +
-        ' select distinct info.* ' +
-        ' from stuTea join teainfo on stuTea.teaId = teainfo.teaId ' +
-        ' join info on teainfo.infoId = info.infoId ' +
+        'union\n' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind \n' +
+        'from stuadd join info on stuadd.infoId = info.infoId \n' +
+        ' where stuId = "'+ stuId +'" ' +
+        'union \n' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind\n' +
+        'from stuTea join teainfo on stuTea.teaId = teainfo.teaId \n' +
+        'join info on teainfo.infoId = info.infoId \n' +
         ' where stuId = "'+ stuId +'" ';
+
     manager.sequelize.query(sql).then(function(kinds){
         kinds = kinds[0];
 
@@ -206,6 +213,30 @@ exports.studentSearchInfo = function (req,callback) {
         callback(value);
 
     });
+};
+
+exports.kindInfo = function (req,callback) {
+    var kind = req.query.type;
+    var sql='';
+    if(kind === "10" || kind === "20"||kind === "30"){
+        sql =
+            'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+            'from info join infokind on infokind.infoId = info.infoId \n' +
+            'where infokind.kind like "' + str.substr(0, 1) +'%"';
+    }else {
+
+     sql =
+        'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+        'from info join infokind on infokind.infoId = info.infoId \n' +
+        'where infokind.kind = "'+kind+'"';
+    }
+    manager.sequelize.query(sql).then(function (value) {
+        value = value[0];
+        console.log("小类的title " + value);
+        callback(value);
+
+    });
+
 };
 // exports.studentAllInfo();
 //exports.getAllStudents();

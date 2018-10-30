@@ -14,7 +14,7 @@ var DreamArtsSignUp = sequelize.define('Info', {
         title:{
             type:Sequelize.STRING(60)
         },
-        pubTime:{
+        date:{
             type:Sequelize.DATE()
         },
         pubTime:{
