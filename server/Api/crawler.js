@@ -10,9 +10,9 @@ var boson = require("./boson")
 // office.startHttpGet();
 
 var rule = new schedule.RecurrenceRule();
-// rule.hour = [0,6,12,18];
+rule.hour = [0,6,12,18];
 // rule.minute = [0, 30];
-rule.second = [0,15,30,45];
+// rule.second = [0,15,30,45];
 schedule.scheduleJob(rule, function(){
     // console.log('现在时间：',new Date());
     soft.startHttpGet();
