@@ -165,6 +165,6 @@ exports.startHttpGet = function(){
     }).on('error',function () {
         console.log('获取学生周知出错')
     });
-}
+};
 //调用
 // startHttpGet();

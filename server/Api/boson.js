@@ -105,7 +105,7 @@ exports.start = function(callback){
     }).catch(function(err){
         console.log('failed: ' + err);
     });
-}
+};
 // nlp.ner(content, function (resultStr) {
 // 	result = JSON.parse(resultStr);
 // 	var word = result[0].word;

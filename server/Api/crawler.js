@@ -4,7 +4,7 @@ var office = require('./crawlerOffice');
 var schedule = require('node-schedule');
 var api = require('./infoApi');
 var manager = require("../DB/manager");
-var boson = require("./boson")
+var boson = require("./boson");
 // soft.startHttpGet();
 // innovation.startHttpGet();
 // office.startHttpGet();

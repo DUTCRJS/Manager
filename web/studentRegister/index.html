@@ -9,7 +9,7 @@
         <title>Bootstrap Registration Form Template</title>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 		    <link rel="stylesheet" href="assets/css/form-elements.css">
@@ -164,15 +164,15 @@ console.log("mima");
 
 
 
-    		if(isnull_id(oid)
-    			&&isnull( opw1)
-    			&&isnull(name)
-    			&&isnull(field)
-    			&&isnull_pn(phoneNum)
-    			&&isnull(gender)
-    			&&isnull(oclass)
-    			&&isnull(campus)
-    			&&jianchaminma(opw1,opw2))
+    		// if(isnull_id(oid)
+    		// 	&&isnull( opw1)
+    		// 	&&isnull(name)
+    		// 	&&isnull(field)
+    		// 	&&isnull_pn(phoneNum)
+    		// 	&&isnull(gender)
+    		// 	&&isnull(oclass)
+    		// 	&&isnull(campus)
+    		// 	&&jianchaminma(opw1,opw2))
     		{
     			console.log("go！");
     			console.log(oid);
@@ -182,8 +182,9 @@ console.log("mima");
             $.ajax({
                 type: "GET",
 
-                url: "http://58.87.72.83:3000/studentRegister",
-                data: {callbackFun:"getName",
+                url: "http://127.0.0.1:3000/studentRegister",
+                data: {
+                  callbackFun:"getName",
                 stuId:oid,
                 password:opw2,
                 name:name,
@@ -232,7 +233,7 @@ console.log("mima");
                         		<!--stuId,name,gender,phoneNum,field,class,password,campus-->
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form role="form"  class="registration-form">
 			                    	<div class="form-group">
 			                        	<label class="sr-only" for="form-last-name">name</label>
 			                        	<input type="text" id="name" name="name" placeholder="name" class="form-last-name form-control" >
@@ -277,7 +278,7 @@ console.log("mima");
 			                        	<input type="text" name="password_again" placeholder="password_again" class="form-email form-control" id="password_again">
 			                        </div>
 			                         
-			                    	 <button type="submit" class="btn" id="btn">Sign me up!</button>
+			                    	 <button type="button" class="btn" id="btn">Sign me up!</button>
 			                    </form>
 		                    </div>
                         </div>
@@ -289,7 +290,7 @@ console.log("mima");
 
 
         <!-- Javascript -->
-        <!--<script src="assets/js/jquery-1.11.1.min.js"></script>-->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/retina-1.1.0.min.js"></script>
