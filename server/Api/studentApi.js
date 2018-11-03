@@ -1,6 +1,7 @@
 var student = require('../DB/student');
 var manager = require("../DB/manager");
 var moment = require('moment');
+var crypto = require("./crypto");
 
 exports.getAllStudents = function() {
 
@@ -16,6 +17,7 @@ exports.createAStudent = function(req,callback) {
 
     var now = Date.now();
     var stu = req.query;
+    console.log("sdd");
     student.create({
         stuId:stu.stuId,
         name:stu.name,
@@ -23,7 +25,7 @@ exports.createAStudent = function(req,callback) {
         phoneNum:stu.phoneNum,
         field:stu.field,
         class:stu.class,
-        password:stu.password,
+        password:crypto.decode(stu.password),
         campus:stu.campus
     }).then(function (p) {
         console.log('created.' + JSON.stringify(p));
@@ -55,9 +57,10 @@ exports.login = function(req,callback) {
         }else{
 
             console.log("注册了！");
-            console.log("oneUser: " + JSON.stringify(oneUser[0]) );
-            console.log("oneUser.password :" + oneUser.password);
-            if(oneUser[0].password === user.password){
+            // console.log("oneUser: " + JSON.stringify(oneUser[0]) );
+            // console.log("oneUser.password :" + oneUser.password);
+            var isRight = crypto.verify(oneUser[0].password,user.password);
+            if(isRight){
                 console.log("登录成功！");
                 callback({state:1 ,msg:"登录成功！"});
             }else{
@@ -213,6 +216,30 @@ exports.studentSearchInfo = function (req,callback) {
         callback(value);
 
     });
+};
+
+exports.kindInfo = function (req,callback) {
+    var kind = req.query.type;
+    var sql='';
+    if(kind === "10" || kind === "20"||kind === "30"){
+        sql =
+            'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+            'from info join infokind on infokind.infoId = info.infoId \n' +
+            'where infokind.kind like "' + str.substr(0, 1) +'%"';
+    }else {
+
+     sql =
+        'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+        'from info join infokind on infokind.infoId = info.infoId \n' +
+        'where infokind.kind = "'+kind+'"';
+    }
+    manager.sequelize.query(sql).then(function (value) {
+        value = value[0];
+        console.log("小类的title " + value);
+        callback(value);
+
+    });
+
 };
 // exports.studentAllInfo();
 //exports.getAllStudents();

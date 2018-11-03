@@ -10,10 +10,10 @@
 
         <!-- CSS -->
         <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
-        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="./css/form-elements.css">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./studentRegister/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./studentRegister/assets/font-awesome/css/font-awesome.min.css">
+		    <link rel="stylesheet" href="./studentRegister/assets/css/form-elements.css">
+        <link rel="stylesheet" href="./studentRegister/assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,14 +23,15 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="./ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="./studentRegister/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./studentRegister/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./studentRegister/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./studentRegister/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="./studentRegister/assets/ico/apple-touch-icon-57-precomposed.png">
 
     </head>
- <script type="text/javascript" src="./js/jquery.min.js" ></script>
+ <script type="text/javascript" src="./studentRegister/assets/js/jquery.min.js" ></script>
+	<!--<script type="text/javascript" src="js/jquery.min.js" ></script>-->
   <script>
    
  	 function isnull_id(val) {
@@ -126,11 +127,11 @@ console.log("mima");
         console.log(data.state);
         
 		console.log(JSON.stringify(data));
-        //alert("sucess " + JSON.stringify(data));
+        alert("sucess " + JSON.stringify(data));
         if(data.state=="1")
         {
         	console.log("成功！");
-        	window.location.href='../plan.html';
+        	window.location.href='./index.html';
         }
        
          if(data.state=="0")
@@ -144,63 +145,60 @@ console.log("mima");
 
         $("#btn").click(function () {
 
-      var oid = document.getElementById('stuI');
-			var opw1 = document.getElementById('password');
-			var opw2 = document.getElementById('password_again');
-			var name = document.getElementById('name');
-			var phoneNum = document.getElementById('phoneNum');
-			var field = document.getElementById('field');
-			var gender = document.getElementById('gender');
-			var oclass = document.getElementById('class');
-			var campus = document.getElementById('campus');
-			var gender = document.getElementById('gender');
+      var oid = $('#stuI').val();
+			var opw1 = $('#password').val();
+			var opw2 = $('#password_again').val();
+			var name = $('#name').val();
+			var phoneNum = $('#phoneNum').val();
+			var field = $('#field').val();
+			var gender = $('#gender').val();
+			var oclass = $('#class').val();
+			var campus = $('#campus').val();
+			var gender = $('#gender').val();
 
-//		console.log('1');
+		console.log("gender " + gender);
   			var oBtn = document.getElementById('Btn');
-//		console.log('3');
-    		if(isnull_id(oid.value)
-    			&&isnull( opw1.value)
-    			&&isnull(name.value)
-    			&&isnull(field.value)
-    			&&isnull_pn(phoneNum.value)
-    			&&isnull(gender.value)
-    			&&isnull(oclass.value)
-    			&&isnull(campus.value)
-    			&&jianchaminma(opw1.value,opw2.value))
+		console.log('3');
+		
+
+
+
+
+    		// if(isnull_id(oid)
+    		// 	&&isnull( opw1)
+    		// 	&&isnull(name)
+    		// 	&&isnull(field)
+    		// 	&&isnull_pn(phoneNum)
+    		// 	&&isnull(gender)
+    		// 	&&isnull(oclass)
+    		// 	&&isnull(campus)
+    		// 	&&jianchaminma(opw1,opw2))
     		{
     			console.log("go！");
+    			console.log(oid);
     		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:3000/app",
-                data: {callbackFun:"getName"},
-                dataType:"jsonp"  //数据格式设置为jsonp
-                //jsonp:"callback"
-            });
 
-
-
-            $.ajax({
-                type: "GET",
                 url: "http://127.0.0.1:3000/studentRegister",
                 data: {
                   callbackFun:"getName",
-                  stuId:"oid",
-                  password:"opw1",
-                  name:"name",
-                  gender:"gender",
-                  phoneNum:"phoneNum",
-                  field:"field",
-                  class:"oclass",
-                  campus:"campus"
+                stuId:oid,
+                password:opw2,
+                name:name,
+                gender:gender,
+                phoneNum:phoneNum,
+                field:field,
+                class:oclass,
+                campus:campus,
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 
                 //jsonp:"callback"
             });
-            console.log("gogogo！");
+            console.log("gogo！");
            }
         });
 
@@ -235,7 +233,7 @@ console.log("mima");
                         		<!--stuId,name,gender,phoneNum,field,class,password,campus-->
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form role="form"  class="registration-form">
 			                    	<div class="form-group">
 			                        	<label class="sr-only" for="form-last-name">name</label>
 			                        	<input type="text" id="name" name="name" placeholder="name" class="form-last-name form-control" >
@@ -280,7 +278,7 @@ console.log("mima");
 			                        	<input type="text" name="password_again" placeholder="password_again" class="form-email form-control" id="password_again">
 			                        </div>
 			                         
-			                    	 <button type="submit" class="btn" id="btn">Sign me up!</button>
+			                    	 <button type="button" class="btn" id="btn">Sign me up!</button>
 			                    </form>
 		                    </div>
                         </div>
@@ -292,14 +290,14 @@ console.log("mima");
 
 
         <!-- Javascript -->
-        <script src="./js/jquery-1.11.1.min.js"></script>
-        <script src="./bootstrap/js/bootstrap.min.js"></script>
-        <script src="./js/jquery.backstretch.min.js"></script>
-        <script src="./js/retina-1.1.0.min.js"></script>
-        <script src="./js/scripts.js"></script>
+        <script src="./studentRegister/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="./studentRegister/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./studentRegister/assets/js/jquery.backstretch.min.js"></script>
+        <script src="./studentRegister/assets/js/retina-1.1.0.min.js"></script>
+        <script src="./studentRegister/assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
-            <script src="./js/placeholder.js"></script>
+            <script src="./studentRegister/assets/js/placeholder.js"></script>
         <![endif]-->
 
     </body>

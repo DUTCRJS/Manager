@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : caiming
-Source Server Version : 50714
+Source Server         : liyunhao
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : manager
 
 Target Server Type    : MYSQL
-Target Server Version : 50714
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-10-23 21:27:50
+Date: 2018-10-30 20:49:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `kind`;
 CREATE TABLE `kind` (
   `kind` varchar(6) NOT NULL,
-  `name` varchar(10) NOT NULL
+  `name` varchar(10) NOT NULL,
+  PRIMARY KEY (`kind`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
