@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getalertinfo(){
+        $.get('__URL__/alertinfo',function(data){
+//alert(data);
+            var json = eval(data); //数组  
+            $.each(json, function (index, item) {
+                //循环获取数据      
+                var id = json[index].id;
+                var addtime = json[index].addtime;
+                var images = json[index].images;
+                var title = json[index].title;
+
+                );
+            });
+        });
+    }
+</script>
+
+
+
+
+、
+
+<div class="box-list-news">
+    <ul class="clear-box" id="clear-box">
+
+              </ul>
+        <div class="clear"></div>
+</div>
+
+</body>
+</html>

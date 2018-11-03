@@ -61,7 +61,7 @@
         display: inline;
     }
     .infoPubtime{
-    float: right;
+        float: right;
     }
 
 </style>
@@ -69,7 +69,8 @@
 
 
 <body>
-    <header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
+<!--头部标签-->
+<header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
     <div style="text-align: center">通知公告</div>
     <div class="form-group col-md-6 col-md-offset-3 " style="padding-top: 20px">
         <div class="input-group">
@@ -78,37 +79,15 @@
         </div>
     </div>
 </header>
-<!--<div class="tb-nav">-->
-    <!--<ul>-->
-        <!--<li class="am-gallery-item">-->
-            <!--<a href="#">-->
-                <!--<img src="imgs/school.png" height="48" width="48"/>-->
-                <!--<p>学校通知</p>-->
-            <!--</a>-->
-        <!--</li>-->
-        <!--<li class="am-gallery-item">-->
-            <!--<a href="">-->
-                <!--<img src="imgs/campus.png" height="47" width="50"/>-->
-                <!--<p>学院通知</p>-->
-            <!--</a>-->
-        <!--</li>-->
-        <!--<li class="am-gallery-item">-->
-            <!--<a href="">-->
-                <!--<img src="imgs/inova.png" height="48" width="48"/>-->
-                <!--<p>创新创业</p>-->
-            <!--</a>-->
-        <!--</li>-->
 
-    <!--</ul>-->
-<!--</div>-->
-
+<!--学校学院创业大规模选择-->
 <div style="height: 100px;"></div>
 <div data-am-widget="nav" class="am-nav"  id="">
     <ul class=" nav am-nav-tabs am-avg-sm-3" style="padding-left: 20px" id="infoKind">
         <li style="padding-left: 10px;" id="school" state="false">
             <a href="#" >
                 <img src="imgs/school.png" height="36" width="36" style="margin-left: 15px;"/>
-             <label   class="am-navbar-label">学校通知</label>
+                <label   class="am-navbar-label">学校通知</label>
             </a>
         </li>
         <li id="campus" state="false">
@@ -127,95 +106,96 @@
 </div>
 
 
-
-    </div>
-    <div class="container col-md-8 col-md-offset-3">
-        <div class="container">
-            <div class="row">
-                    <ul class="breadcrumb  col-md-6">
-                        <li>
-                            <a href="#">学院通知</a> <span class="divider">></span>
-                        </li>
-                        <li>
-                            <a href="#">实践评奖</a></span></li>
-                        <div id="demo_box" style="float: right;z-index:9999;position: relative;">
-                        <div class="pop_ctrl"><i class="fa fa-bars"></i></div>
-                        <ul id="demo_ul">
-                            <li class="demo_li"><div><i class="fa fa-home"></i></div><div style="font-size: 14px;">全部内容</div></li>
-                            <li class="demo_li"><div><i class="fa fa-cloud"></i></div><div  style="font-size: 14px;">课程考试</div></li>
-                            <li class="demo_li"><div><i class="fa fa-cog"></i></div><div  style="font-size: 14px;">科创竞赛</div></li>
-                            <li class="demo_li"><div><i class="fa fa-envelope"></i></div><div  style="font-size: 14px;">文体活动</div></li>
-                            <li class="demo_li"><div><i class="fa fa-clock-o"></i></div><div  style="font-size: 14px;">社会实践</div></li>
-                            <li class="demo_li"><div><i class="fa fa-folder"></i></div><div  style="font-size: 14px;">评奖竞选</div></li>
-                            <li class="demo_li"><div><i class="fa fa-heart-o"></i></div><div  style="font-size: 14px;">通知公示</div></li>
-                            <li class="demo_li"><div><i class="fa fa-mobile"></i></div><div  style="font-size: 14px;">其他</div></li>
-                        </ul>
-                    </div>
+<!--面包碎导航和九宫格菜单选择-->
+</div>
+<div class="container col-md-8 col-md-offset-3">
+    <div class="container">
+        <div class="row">
+            <ul class="breadcrumb  col-md-6">
+                <li>
+                    <a href="#" id="BigCategory">学院通知</a> <span class="divider">></span>
+                </li>
+                <li>
+                    <a href="#" id="SmallCategory">实践评奖</a></span></li>
+                <div id="demo_box" style="float: right;z-index:9999;position: relative;">
+                    <div class="pop_ctrl"><i class="fa fa-bars"></i></div>
+                    <ul id="demo_ul">
+                        <li class="demo_li"><div><i class="fa fa-home"></i></div><div style="font-size: 14px;">全部内容</div></li>
+                        <li class="demo_li"><div><i class="fa fa-cloud"></i></div><div  style="font-size: 14px;">课程考试</div></li>
+                        <li class="demo_li"><div><i class="fa fa-cog"></i></div><div  style="font-size: 14px;">科创竞赛</div></li>
+                        <li class="demo_li"><div><i class="fa fa-envelope"></i></div><div  style="font-size: 14px;">文体活动</div></li>
+                        <li class="demo_li"><div><i class="fa fa-clock-o"></i></div><div  style="font-size: 14px;">社会实践</div></li>
+                        <li class="demo_li"><div><i class="fa fa-folder"></i></div><div  style="font-size: 14px;">评奖竞选</div></li>
+                        <li class="demo_li"><div><i class="fa fa-heart-o"></i></div><div  style="font-size: 14px;">通知公示</div></li>
+                        <li class="demo_li"><div><i class="fa fa-film"></i></div><div  style="font-size: 14px;">外出交流</div></li>
+                        <li class="demo_li"><div><i class="fa fa-mobile"></i></div><div  style="font-size: 14px;">其他</div></li>
                     </ul>
                 </div>
+            </ul>
         </div>
     </div>
-    <div class="container col-md-8 col-md-offset-3"  >
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+</div>
+<div class="container col-md-8 col-md-offset-3"  >
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-        <div class="panel panel-default">
-            <div>
-           <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-            </div>
-            <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
+    </div>
+    <div class="panel panel-default">
+        <div>
+            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
         </div>
-
+        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
     </div>
 
+</div>
+<!--没有面板样式的普通版本-->
 <!--<div class="siminfo" >-->
-        <!--<a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>-->
-        <!--<p class="infoPubtime"> 2018-10-19 </p>-->
+<!--<a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>-->
+<!--<p class="infoPubtime"> 2018-10-19 </p>-->
 <!--</div>-->
 
 
@@ -246,71 +226,538 @@
         </li>
     </ul>
 </div>
-    </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.popmenu.js"></script>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.popmenu.js"></script>
 <script>
     var current ;
     $(function(){
-
         $('#demo_box').popmenu();
-        console.log("成功");
-
     });
-
 
     $("#school").click(function () {
         $(this).attr("state","true");
-        // alert( $(this).attr("state") );
-        var allkind = $("#infoKind").children("li");
-        allkind.each(function (item) {
-            if($(this).attr("state") === "true"){
-                current = $(this).attr("id");
-            }
-            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
+        current = $(this).attr("id");
+        $('#BigCategory').text("学校通知");
+        $('#SmallCategory').text("全部内容");
+
         })
-    });
+
 
     $("#campus").click(function () {
         $(this).attr("state","true");
-        // alert( $(this).attr("state") );
-        var allkind = $("#infoKind").children("li");
-        allkind.each(function (item) {
-            if($(this).attr("state") === "true"){
-                current = $(this).attr("id");
-            }
-            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
-        })
-    });
+        current = $(this).attr("id");
+        $('#BigCategory').text("学院通知");
+        $('#SmallCategory').text("全部内容");
+    })
 
-    $("#education").click(function () {
-        $(this).attr("state","true");
-        // alert( $(this).attr("state") );
-        var allkind = $("#infoKind").children("li");
-        allkind.each(function (item) {
-            if($(this).attr("state") === "true"){
-                current = $(this).attr("id");
-            }
-            // alert($(this).attr("state")+ "index" + $(this).attr("id"));
-        })
-    });
+     $("#create").click(function ()
+     {
+         $(this).attr("state","true");
+         current = $(this).attr("id");
+         $('#BigCategory').text("创新创业");
+         $('#SmallCategory').text("全部内容");
+
+     })
+    //
+    // {
+    //     $(this).attr("state","true");
+    //     $("#school").attr("state","false");
+    //     $("#campus").attr("state","false");
+    //     // alert( $(this).attr("state") );
+    //     var allkind = $("#infoKind").children("li");
+    //     allkind.each(function (item) {
+    //         if($(this).attr("state") === "true"){
+    //             current = $(this).attr("id");
+    //         }
+    //         // alert($(this).attr("state")+ "index" + $(this).attr("id"));
+    //     })
+    // });
+
+
     // fa-home 全部内容
     $(".fa-home").click(function () {
-        alert("current " + current);
-        if(current === "school"){
-            ajax
-            {
-                type:"20"
-            }
+        // alert("current" + current);
+        $('#SmallCategory').text("全部内容");
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+              	    callbackFun:"getName",
+                    type: "20"
+                },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
         }
-    })
-    // fa-cloud 课程考试
-    //  fa-cog 科创竞赛
-    //  fa-envelope 文体活动
-    //  fa-clock-o 社会实践
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "10"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "30"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-cloud 课程考试
+    $(".fa-cloud").click(function () {
+        $('#SmallCategory').text("课程考试");
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+            	callbackFun:"getName",
+                    type: "26"
+                },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "16"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/KindInfo",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "36"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    // fa-cog 科创竞赛
+    $(".fa-cog").click(function () {
+        $('#SmallCategory').text("科创竞赛");
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "21"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "11"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "31"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-envelope 文体活动
+    $(".fa-envelope").click(function () {
+        $('#SmallCategory').text("文体活动");
+
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "22"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "12"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "32"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-clock-o 实践交流
+    $(".fa-clock-o").click(function () {
+        $('#SmallCategory').text("实践交流");
+
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "24"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "14"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "34"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
     //  fa-folder 评奖竞选
-    // <li class="demo_li"><div><i class="fa fa-heart-o"></i></div><div  style="font-size: 14px;">通知公示</div></li>
-    // <li class="demo_li"><div><i class="fa fa-mobile">
+    $(".fa-folder").click(function () {
+        $('#SmallCategory').text("评奖竞选");
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "23"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "13"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "33"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-heart-o 通知公示
+    $(".fa-heart-o ").click(function () {
+        $('#SmallCategory').text("通知公示");
+
+        if (current === "school") {
+            $.ajax
+            ({
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "25"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "15"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "35"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-film 外出交流
+    $(".fa-film ").click(function () {
+        $('#SmallCategory').text("外出交流");
+
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "27"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "17"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "37"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+    //fa-mobile 其他
+    $(".fa-mobile ").click(function () {
+        $('#SmallCategory').text("其他");
+        if (current === "school") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun:"getName",
+                        type: "29"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+
+            });
+        }
+        if (current === "campus") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "19"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+        }
+        if (current === "create") {
+            $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://58.87.72.83:3000/InfoKind",
+                data:
+                    {
+                        callbackFun: "getName",
+                        type: "39"
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+
+        }
+    });
+
+
+    function getName(data) {
+        {
+            console.log(JSON.stringify(data));
+            var oneData = {};
+            //用于将一个 JSON 字符串转换为对象。
+            var passage = JSON.parse(item.kind);
+             passage.forEach(function(kind,index){;
+            });
+                var json = eval(data); //数组  
+                $.each(json, function (index, item) {
+                    //循环获取数据      
+                    var id = json[index].infoId;
+                    var Title = json[index].title;
+                    var pubTime = json[index].pubTime;
+
+                });
+        }
+    }
 </script>
 
 </body>
