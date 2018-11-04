@@ -31,10 +31,11 @@
         margin-left: -5px;
         width: 30px;
     }
-    @media(max-width:414px){
+    @media(max-width:414px) {
         .w3pay-right {
             padding: 1em;
         }
+
 
 </style>
 
@@ -322,7 +323,7 @@
 
                         this.renderEvents(todaysEvents, details);
 
-                        arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
+                        arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 18+ 'px';
                     }
 
                     //貌似是事件绑定日期弹框的函数
@@ -430,7 +431,7 @@
                     $.ajax({
                         type: "GET",
 
-                        url: "http://127.0.0.1:3000/studentAllInfo",
+                        url: "http://58.87.72.83:3000/studentAllInfo",
                         data: {callbackFun:"getName",
                         stuId:"201692077"
                         
@@ -589,7 +590,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class=""  style="padding-top: 5px">
+            <a href="studentDetail/contact.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
