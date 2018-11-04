@@ -135,7 +135,7 @@
         </div>
     </div>
 </div>
-<div class="container col-md-8 col-md-offset-3"  >
+<div class="container col-md-8 col-md-offset-3"  id="notices">
     <div class="panel panel-default">
         <div>
             <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
@@ -204,7 +204,7 @@
 
 
 <div style="height: 58px;"></div>
-<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  id="">
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  >
     <ul class="am-navbar-nav am-cf am-avg-md-4">
         <li>
             <a href="#" class="curr" style="padding-top: 5px">
@@ -219,7 +219,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class=""  style="padding-top: 5px">
+            <a href="studentDetail/contact.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
@@ -240,15 +240,40 @@
         current = $(this).attr("id");
         $('#BigCategory').text("学校通知");
         $('#SmallCategory').text("全部内容");
+        $.ajax
+        ({
+            /**重点：ajax只需要type和url属性*/
+            type: "get",//数据发送的方式（post 或者 get）
+            //type:"20",
+            url: "http://58.87.72.83:3000/kindInfo",
+            data:
+                {
+                    callbackFun:"getName",
+                    type: "20"
+                },
+            dataType: "jsonp"  //数据格式设置为jsonp
 
+        });
         })
 
-
     $("#campus").click(function () {
-        $(this).attr("state","true");
+        $(this).attr("state", "true");
         current = $(this).attr("id");
         $('#BigCategory').text("学院通知");
         $('#SmallCategory').text("全部内容");
+        $.ajax
+        ({
+            /**重点：ajax只需要type和url属性*/
+            type: "get",//数据发送的方式（post 或者 get）
+            //type:"20",
+            url: "http://58.87.72.83:3000/kindInfo",
+            data:
+                {
+                    callbackFun: "getName",
+                    type: "10"
+                },
+            dataType: "jsonp"  //数据格式设置为jsonp
+        })
     })
 
      $("#create").click(function ()
@@ -257,7 +282,19 @@
          current = $(this).attr("id");
          $('#BigCategory').text("创新创业");
          $('#SmallCategory').text("全部内容");
-
+         $.ajax
+         ({
+             /**重点：ajax只需要type和url属性*/
+             type: "get",//数据发送的方式（post 或者 get）
+             //type:"20",
+             url: "http://58.87.72.83:3000/kindInfo",
+             data:
+                 {
+                     callbackFun: "getName",
+                     type: "30"
+                 },
+             dataType: "jsonp"  //数据格式设置为jsonp
+         });
      })
     //
     // {
@@ -285,7 +322,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
               	    callbackFun:"getName",
@@ -301,7 +338,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -316,7 +353,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -336,7 +373,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
             	callbackFun:"getName",
@@ -352,7 +389,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -367,7 +404,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/KindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -387,7 +424,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -403,7 +440,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -418,7 +455,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -439,7 +476,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -455,7 +492,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -470,7 +507,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -491,7 +528,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -507,7 +544,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -522,7 +559,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -542,7 +579,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -558,7 +595,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -573,7 +610,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -593,7 +630,7 @@
             ({
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -609,7 +646,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -624,7 +661,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -645,7 +682,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -661,7 +698,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -676,7 +713,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -696,7 +733,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -712,7 +749,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -727,7 +764,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: "http://58.87.72.83:3000/InfoKind",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -736,27 +773,45 @@
                 dataType: "jsonp"  //数据格式设置为jsonp
             });
 
+
         }
     });
-
-
+    // var oneData = {};
+    // // //用于将一个 JSON 字符串转换为对象。
+    // // var passage = JSON.parse(item.kind);
+    // //  passage.forEach(function(kind,index){;
+    // // });
+//回调函数 从数据库中获取title和pubtime
     function getName(data) {
         {
+            console.log("进入回调函数！");
             console.log(JSON.stringify(data));
-            var oneData = {};
-            //用于将一个 JSON 字符串转换为对象。
-            var passage = JSON.parse(item.kind);
-             passage.forEach(function(kind,index){;
-            });
                 var json = eval(data); //数组  
                 $.each(json, function (index, item) {
-                    //循环获取数据      
+                    //循环获取数据 、处理数据、 添加内容   
                     var id = json[index].infoId;
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
-
+                    var NoticePanel= createElement('div', 'panel panel-default');
+                    var NoticeTitle = createElement('div', 'infotitle',Title);
+                    $('.infotitle').attr("value",id);
+                    var NoticeTime = createElement('div', 'panel-footer',pubTime);
+                    NoticePanel.appendChild(NoticeTitle);
+                    NoticePanel.appendChild(NoticeTime);
+                    $('#notices').appendChild(NoticePanel);
                 });
         }
+    }
+    //标准的对象元素构建 参数穿的是tag class 和内部文字
+    function createElement(tagName, className, innerText) {
+        var ele = document.createElement(tagName);
+        if(className) {
+            ele.className = className;
+        }
+        if(innerText) {
+            ele.innderText = ele.textContent = innerText;
+        }
+        return ele;
     }
 </script>
 

@@ -5,12 +5,12 @@
 
         var settings = $.extend({
             'controller': true,
-            'width': '140px',
+            'width': '210px',
             'background': '#34495e',
             'focusColor': '#1abc9c',
             'borderRadius': '10px',
-            'top': '20',
-            'left': '-15',
+            'top': '0',
+            'left': '15',
             'iconSize': '70px'
         }, options);
         if (settings.controller === true) {
