@@ -36,7 +36,7 @@
     <span class="label label-success">2018年10月19日 08:47</span>
 </p>
     </div>
-<div>
+<div id="infoContent">
     <h6> 学业指导中心20172018学年本科生科研能力提升讲座(第一期)</h6>
     <p>        为促进开发区校区学风建设，提升本科生的科学研究兴趣和研究能力，学业指导中心依托研究生资源——大连理工大学阿尔法实验室（The Alpha Lab），成立了面向本科生传授如何做科研的研究生学术引导团，现开展科研指导讲座，具体安排如下，欢迎广大同学前去学习，听课。
     </p>
@@ -52,8 +52,8 @@
 </div>
     <div>
         <ul class="pagination">
-            <li><a href="#">上一篇</a></li>
-            <li><a href="#">下一篇</a></li>
+            <li id="preInfo"><a href="#">上一篇</a></li>
+            <li id="nextInfo"><a href="#">下一篇</a></li>
         </ul>
     </div>
 
@@ -91,4 +91,44 @@
     </ul>
 </div>
 </body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+    
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    function getName(data){
+        console.log(JSON.stringify(data));
+
+        $("#infoContent").html(data.htmlContent);
+    }
+    var infoIdTemp = getUrlParam("infoId");
+    // alert(infoIdTemp);
+    $.ajax({
+            /**重点：ajax只需要type和url属性*/
+            type: "get",//数据发送的方式（post 或者 get）
+            //type:"20",
+            url: "http://58.87.72.83:3000/studentOneInfo",
+            data:
+                {
+                    callbackFun: "getName",
+                    infoId: infoIdTemp
+                },
+            dataType: "jsonp"  //数据格式设置为jsonp
+    });
+
+    $("#preInfo").click(function(){
+        infoIdTemp -=  parseInt(infoIdTemp) - 1;
+        location.href="info.html?infoId="+infoIdTemp;
+    });
+
+    $("#nextInfo").click(function(){
+        infoIdTemp = parseInt(infoIdTemp) + 1;
+        location.href="info.html?infoId="+infoIdTemp;
+    });
+</script>
 </html>

@@ -37,6 +37,9 @@
         font-family: Consolas,Liberation Mono,Courier,monospace;
         font-size: 13px;
     }
+    .panel-footer{
+        padding: 0;
+    }
     @media screen and (orientation: portrait){
         pre{
             overflow-x: scroll;
@@ -236,6 +239,7 @@
     });
 
     $("#school").click(function () {
+        // alert("dffddf");
         $(this).attr("state","true");
         current = $(this).attr("id");
         $('#BigCategory').text("学校通知");
@@ -254,7 +258,7 @@
             dataType: "jsonp"  //数据格式设置为jsonp
 
         });
-        })
+    })
 
     $("#campus").click(function () {
         $(this).attr("state", "true");
@@ -787,18 +791,26 @@
             console.log("进入回调函数！");
             console.log(JSON.stringify(data));
                 var json = eval(data); //数组  
+                $('#notices').html("");
                 $.each(json, function (index, item) {
                     //循环获取数据 、处理数据、 添加内容   
+
                     var id = json[index].infoId;
+                    console.log(id);
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
+                    console.log
                     var NoticePanel= createElement('div', 'panel panel-default');
-                    var NoticeTitle = createElement('div', 'infotitle',Title);
+                    var NoticeTitle = createElement('a', 'infotitle',Title);
+                    var temphref = "info.html?infoId=" + id;
+                    NoticeTitle.setAttribute("href",temphref);
                     $('.infotitle').attr("value",id);
                     var NoticeTime = createElement('div', 'panel-footer',pubTime);
                     NoticePanel.appendChild(NoticeTitle);
                     NoticePanel.appendChild(NoticeTime);
-                    $('#notices').appendChild(NoticePanel);
+                    
+
+                    $('#notices').append(NoticePanel);
                 });
         }
     }
