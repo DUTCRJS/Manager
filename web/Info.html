@@ -93,20 +93,37 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-
+    // alert("浏览器支持localstorage");
+    // if(!window.localStorage){
+    //     alert("浏览器支持localstorage");
+    //     // return false;
+    // }else{
+    //     var storage = window.localStorage;
+        
+    //     storage.name="李云皓";
+        
+    //     storage.stuId="201692077";
+        
+    //     storage.gender = "男";
+        
+    //     alert(storage["name"]);
+    //     alert(storage.stuId);
+    //     alert(storage.gender);
+    // }
     
-    function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
-    }
+    // function getUrlParam(name) {
+    //     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    //     var r = window.location.search.substr(1).match(reg);
+    //     if (r != null) return unescape(r[2]); return null;
+    // }
 
     function getName(data){
         console.log(JSON.stringify(data));
 
         $("#infoContent").html(data.htmlContent);
     }
-    var infoIdTemp = getUrlParam("infoId");
+
+    var infoIdTemp = window.localStorage.curInfo;
     // alert(infoIdTemp);
     $.ajax({
             /**重点：ajax只需要type和url属性*/
@@ -123,12 +140,15 @@
 
     $("#preInfo").click(function(){
         infoIdTemp -=  parseInt(infoIdTemp) - 1;
-        location.href="info.html?infoId="+infoIdTemp;
+        window.localStorage.curInfo = infoIdTemp;
+        location.href="info.html?";
     });
 
     $("#nextInfo").click(function(){
         infoIdTemp = parseInt(infoIdTemp) + 1;
-        location.href="info.html?infoId="+infoIdTemp;
+        window.localStorage.curInfo = infoIdTemp;
+        location.href="info.html";
     });
 </script>
+
 </html>
