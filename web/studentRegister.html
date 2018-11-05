@@ -186,31 +186,31 @@ console.log("mima");
           }else{
               var storage = window.localStorage;
         
-              storage.stuId:oid,
-              storage.password:opw2,
-              storage.name:name,
-              storage.gender:gender,
-              storage.phoneNum:phoneNum,
-              storage.field:field,
-              storage.class:oclass,
-              storage.campus:campus,
+              storage.stuId = oid;
+              storage.password = opw2;
+              storage.name = name;
+              storage.gender = gender;
+              storage.phoneNum = phoneNum;
+              storage.field = field;
+              storage.class = oclass;
+              storage.campus = campus;
           }
 
            //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
 
-                url: "http://127.0.0.1:3000/studentRegister",
+                url: window.localStorage.url + "/studentRegister",
                 data: {
-                callbackFun:"getName",
-                stuId:oid,
-                password:opw2,
-                name:name,
-                gender:gender,
-                phoneNum:phoneNum,
-                field:field,
-                class:oclass,
-                campus:campus,
+                  callbackFun:"getName",
+                  stuId:oid,
+                  password:opw2,
+                  name:name,
+                  gender:gender,
+                  phoneNum:phoneNum,
+                  field:field,
+                  class:oclass,
+                  campus:campus
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 
