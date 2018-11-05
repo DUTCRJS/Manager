@@ -107,20 +107,23 @@
     $(document).ready(function () {
 
         $("#btn").click(function () {
-      var oid = document.getElementById('stuID');
+        	var oid = document.getElementById('stuID');
 			var opw = document.getElementById('password');
 //		console.log('1');
   			var oBtn = document.getElementById('login');
 //		console.log('3');
     		if(isnull_id( oid.value )&&isnull_pw( opw.value))
     		{
+    			
+    		
+    		
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                  url: window.localStorage.url + "/studentLogin",
-                  data: {callbackFun:"getName",
-                  stuId:$("#stuID").val(),
-                  password:$("#password").val()
+                url: "http://127.0.0.1:3000/studentLogin",
+                data: {callbackFun:"getName",
+                stuId:$("#stuID").val(),
+                password:$("#password").val()
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
                 //jsonp:"callback"
@@ -176,7 +179,7 @@
 			                        <button type="button" id="btn"  class="btn"  >登录</button>
 			                     
 			                    </form>
-			                    <div style="text-align: right;"><a href="./studentRegister.html">现在注册</a></div>
+			                    <div style="text-align: right;"><a>现在注册</a></div>
 		                    </div>
                         </div>
                     </div>

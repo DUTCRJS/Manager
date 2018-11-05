@@ -9,7 +9,7 @@
         <title>Bootstrap Login Form Template</title>
 
         <!-- CSS -->
-        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="./login/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="./login/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./login/assets/css/form-elements.css">
@@ -116,7 +116,7 @@
             //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
                 type: "GET",
-                url: window.localStorage.url + "/teacherLogin",
+                url: "http://58.87.72.83:3000/teacherLogin",
                 data: {callbackFun:"getName",
                 teaId:"oid",
                 password:"opw",

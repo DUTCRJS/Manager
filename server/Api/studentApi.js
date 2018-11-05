@@ -17,7 +17,7 @@ exports.createAStudent = function(req,callback) {
 
     var now = Date.now();
     var stu = req.query;
-    console.log("stu "+ JSON.stringify(stu) );
+    console.log("sdd");
     student.create({
         stuId:stu.stuId,
         name:stu.name,
