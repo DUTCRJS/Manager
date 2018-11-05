@@ -41,18 +41,8 @@
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        cook = {};
         
-        cook.stuId = "201692077";
-        cook.password = "123" ;
-        cook.name = "李云皓";
-        cook.gender = "男";
-        cook.phoneNum = "18742593080" ;
-        cook.field = "软件开发与测试" ;
-        cook.class = "软件1602" ;
-        cook.campus = "软件学院" ;
-        cook.isLogin = "false" ;
-        if(cook.isLogin == "true"){
+        if(window.localStorage.isLogin == "true"){
         	window.location.href = "plan.html";
         }else{
         	window.location.href = "studentLogin.html";
