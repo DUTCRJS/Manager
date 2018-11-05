@@ -208,8 +208,8 @@ exports.studentSearchInfo = function (req,callback) {
     var sql =
         ' select *  ' +
         ' from info ' +
-        ' where title like "%通知%" ' +
-        ' limit 5';
+        ' where title like "%'+title +'%" ' +
+        ' limit 10';
     manager.sequelize.query(sql).then(function (value) {
         value = value[0];
         console.log("模糊搜索的title " + value);

@@ -78,7 +78,7 @@
     <div class="form-group col-md-6 col-md-offset-3 " style="padding-top: 20px">
         <div class="input-group">
             <div class="input-group-addon"><img src="imgs/research.png" height="15" width="15"/></div>
-            <input type="text" class="form-control" placeholder="请输入想要搜索的通知内容">
+            <input type="text" class="form-control" placeholder="请输入想要搜索的通知内容" oninput="searchTitle(this.value)">
         </div>
     </div>
 </header>
@@ -222,7 +222,7 @@
             </a>
         </li>
         <li>
-            <a href="studentDetail/contact.html" class=""  style="padding-top: 5px">
+            <a href="./studentDetail.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
@@ -815,7 +815,7 @@
                     //循环获取数据 、处理数据、 添加内容   
 
                     var id = json[index].infoId;
-                    console.log(id);
+                    // console.log(id);
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
                     console.log
@@ -853,6 +853,24 @@
         return ele;
     }
 </script>
-
+<script type="text/javascript">
+    function searchTitle(title){
+        console.log(title);
+        
+        $.ajax
+            ({
+                /**重点：ajax只需要type和url属性*/
+                type: "get",//数据发送的方式（post 或者 get）
+                //type:"20",
+                url: "http://127.0.0.1:3000/studentSearchInfo",
+                data:
+                    {
+                        callbackFun: "getName",
+                        title: title
+                    },
+                dataType: "jsonp"  //数据格式设置为jsonp
+            });
+    }
+</script>
 </body>
 </html>
