@@ -17,7 +17,7 @@ exports.createAStudent = function(req,callback) {
 
     var now = Date.now();
     var stu = req.query;
-    console.log("sdd");
+    console.log("stu "+ JSON.stringify(stu) );
     student.create({
         stuId:stu.stuId,
         name:stu.name,
@@ -208,8 +208,8 @@ exports.studentSearchInfo = function (req,callback) {
     var sql =
         ' select *  ' +
         ' from info ' +
-        ' where title like "%通知%" ' +
-        ' limit 5';
+        ' where title like "%'+title +'%" ' +
+        ' limit 10';
     manager.sequelize.query(sql).then(function (value) {
         value = value[0];
         console.log("模糊搜索的title " + value);
@@ -219,23 +219,27 @@ exports.studentSearchInfo = function (req,callback) {
 };
 
 exports.kindInfo = function (req,callback) {
+    // console.log("11111");
     var kind = req.query.type;
+    console.log("kind " + kind);
     var sql='';
-    if(kind === "10" || kind === "20"||kind === "30"){
+    if(kind === "10" || kind === "20" || kind === "30"){
+        // console.log("222");
         sql =
-            'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+            'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime\n' +
             'from info join infokind on infokind.infoId = info.infoId \n' +
-            'where infokind.kind like "' + str.substr(0, 1) +'%"';
+            'where infokind.kind like "' + kind.substr(0, 1) +'%"';
     }else {
 
      sql =
-        'select distinct info.infoId,info.title,info.startTime,info.endTime,infokind.kind\n' +
+        'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime\n' +
         'from info join infokind on infokind.infoId = info.infoId \n' +
-        'where infokind.kind = "'+kind+'"';
+        'where infokind.kind = "'+ kind +'"';
     }
+    console.log("sql " + sql);
     manager.sequelize.query(sql).then(function (value) {
         value = value[0];
-        console.log("小类的title " + value);
+        console.log("小类的title " + JSON.stringify(value));
         callback(value);
 
     });
