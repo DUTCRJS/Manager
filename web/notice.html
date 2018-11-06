@@ -222,7 +222,7 @@
             </a>
         </li>
         <li>
-            <a href="./studentDetail.html" class=""  style="padding-top: 5px">
+            <a href="studentDetail/contact.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
@@ -815,7 +815,7 @@
                     //循环获取数据 、处理数据、 添加内容   
 
                     var id = json[index].infoId;
-                    // console.log(id);
+                    console.log(id);
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
                     console.log
@@ -853,6 +853,7 @@
         return ele;
     }
 </script>
+
 <script type="text/javascript">
     function searchTitle(title){
         console.log(title);
@@ -872,5 +873,6 @@
             });
     }
 </script>
+
 </body>
 </html>

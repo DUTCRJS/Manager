@@ -524,8 +524,8 @@
                                 var timeTemp = moment(item.pubTime);
                                 // console.log("ssss " + timeTemp);
                                 oneData.pubTime = moment(timeTemp);
-                                oneData.startTime = moment("2018-11-03 12:31:20");
-                                oneData.endTime = moment("2018-11-2 12:31:20");
+                                oneData.startTime = moment(item.startTime);
+                                oneData.endTime = moment(item.endTime);
                                 data.push(oneData);
                             });
                         // }
@@ -590,7 +590,7 @@
             </a>
         </li>
         <li>
-            <a href="./studentDetail.html" class=""  style="padding-top: 5px">
+            <a href="studentDetail/contact.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
