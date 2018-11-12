@@ -238,6 +238,24 @@
         $('#demo_box').popmenu();
     });
 
+    $(this).attr("state","true");
+    current = "school";
+    $('#BigCategory').text("学校通知");
+    $('#SmallCategory').text("全部内容");
+    $.ajax
+    ({
+        /**重点：ajax只需要type和url属性*/
+        type: "get",//数据发送的方式（post 或者 get）
+        //type:"20",
+        url: window.localStorage.url + "/kindInfo",
+        data:
+            {
+                callbackFun:"getName",
+                type: "20"
+            },
+        dataType: "jsonp"  //数据格式设置为jsonp
+
+    });
     $("#school").click(function () {
         // alert("dffddf");
         $(this).attr("state","true");
@@ -815,7 +833,7 @@
                     //循环获取数据 、处理数据、 添加内容   
 
                     var id = json[index].infoId;
-                    console.log(id);
+                    // console.log(id);
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
                     console.log
