@@ -427,13 +427,14 @@
 
                 //事件的导入 需要写一个api把数据从库里拿出来
                 !function() {
+                    // console.log(window.localStorage.stuId);
                     // var data = [];
                     $.ajax({
-                        type: "GET",
+                            type: "GET",
 
-                        url: window.localStorage.url + "/studentAllInfo",
-                        data: {callbackFun:"getName",
-                        stuId:"201692077"
+                            url: window.localStorage.url + "/studentAllInfo",
+                            data: {callbackFun:"getName",
+                            stuId:window.localStorage.stuId
                         
                         },
                         dataType:"jsonp"  //数据格式设置为jsonp
