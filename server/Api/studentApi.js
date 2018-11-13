@@ -15,9 +15,9 @@ exports.getAllStudents = function() {
 
 exports.createAStudent = function(req,callback) {
 
-    var now = Date.now();
+    // var now = Date.now();
     var stu = req.query;
-    console.log("sdd");
+    console.log("stu" + stu);
     student.create({
         stuId:stu.stuId,
         name:stu.name,
@@ -32,7 +32,7 @@ exports.createAStudent = function(req,callback) {
         callback({state:1,mag:'注册成功！'});
     }).catch(function (err) {
         console.log('failed: ' + err);
-        callback({state:1,mag:'注册失败，请重试！'});
+        callback({state:0,mag:'注册失败，请重试！'});
 
     });
 
@@ -181,6 +181,7 @@ exports.studentAddOneInfo = function (req,callback) {
     var stuId = req.query.stuId;
     // var infoId = "3" ;
     var oneInfo = req.query;
+    console.log("插入一条学生自定义通知！");
     var sql1 = 'select infoId from info order by infoId DESC limit 1';
     manager.sequelize.query(sql1).then(function (value) {
         value = value[0][0];

@@ -1,78 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-
-        <!-- CSS -->
-        
-        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
-        <link rel="stylesheet" href="studentPrefer/assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="studentPrefer/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="studentPrefer/assets/css/form-elements.css">
-        <link rel="stylesheet" href="studentPrefer/assets/css/style.css">
-          <link rel="stylesheet" href="studentPrefer/css/style.css" media="screen" type="text/css" />
-
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"> -->
+    <link rel="stylesheet" href="studentPrefer/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="studentPrefer/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="studentPrefer/assets/css/form-elements.css">
+    <link rel="stylesheet" href="studentPrefer/assets/css/style.css">
+    <link rel="stylesheet" href="studentPrefer/css/style.css" media="screen" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="studentPrefer/assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="studentPrefer/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="studentPrefer/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="studentPrefer/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="studentPrefer/assets/ico/apple-touch-icon-57-precomposed.png">
-        <link rel="stylesheet" href="css/amazeui.min.css" />
-        <link rel="stylesheet" href="css/app.css" />
-    </head>
- <script type="text/javascript" src="studentPrefer/jquery.min.js" ></script>
-    <script type="text/javascript" src="studentPrefer/js/index.js" ></script>
-  <script>
-   
- 	
-
-
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="studentPrefer/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="studentPrefer/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="studentPrefer/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="studentPrefer/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="studentPrefer/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+<script type="text/javascript" src="studentPrefer/jquery.min.js"></script>
+<script type="text/javascript" src="studentPrefer/js/index.js"></script>
+<script>
     //回调函数
     function getName(data){
-    	console.log("get");
+      console.log("get");
         console.log(data.state);
         
-		console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
         //alert("sucess " + JSON.stringify(data));
         if(data.state=="2")
         {
-        	console.log("成功！");
-        	window.location.href='../plan.html';
+          console.log("成功！");
+          window.location.href='../plan.html';
         }
        
          if(data.state=="0")
         {
-        	console.log("失败");
-        	
+          console.log("失败");
+          
         }
     }
     
     Array.prototype.remove = function(val) { 
-		var index = this.indexOf(val); 
-		if (index > -1) { 
-		this.splice(index, 1); 
-		} 
-	};
+    var index = this.indexOf(val); 
+    if (index > -1) { 
+    this.splice(index, 1); 
+    } 
+  };
 
     $(document).ready(function () {
-			var arrayObj = new Array();　
-		
-			 $("li").click(function(){
-  					$(this).toggleClass('selected');
+      var arrayObj = new Array();　
+    
+       $("li").click(function(){
+            $(this).toggleClass('selected');
                  console.log(this.id);
                  var index = arrayObj.indexOf(this.value);
                  if (index > -1) {
@@ -86,31 +75,31 @@
                      arrayObj.push(this.value);
                  }
                      if ($('li.selected').length == 0)
- 					 {
-  					  $('.select').removeClass('selected');
-  					 }
- 					 else
- 					 {
- 					   $('.select').addClass('selected');
- 					  }
- 					 counter();
-						})
+           {
+              $('.select').removeClass('selected');
+             }
+           else
+           {
+             $('.select').addClass('selected');
+            }
+           counter();
+            })
         $("#bbtn").click(function () {
-        	
-	
-//		console.log('1');
-//   			var oBtn = document.getElementById('bbtn');
-//		console.log('3');
-    		
-    			console.log("go！");
-    		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
-    		 $.ajax({
+          
+  
+//    console.log('1');
+//        var oBtn = document.getElementById('bbtn');
+//    console.log('3');
+        
+          console.log("go！");
+        //<!--stuId,name,gender,phoneNum,field,class,password,campus-->
+         $.ajax({
                 type: "GET",
-                url: "http://58.87.72.83:3000/studentPrefer",
+                url: window.localStorage.url + "/studentPrefer",
                 data: {
                     callbackFun:"getName",
                     prefer:JSON.stringify(arrayObj),
-                    stuId:"20169077",
+                    stuId: window.localStorage.stuId,
                 
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
@@ -120,7 +109,7 @@
 //              type: "GET",
 //              url: "http://58.87.72.83:3000/studentRegister",
 //              data: {
-//              	callbackFun:"getName",
+//                callbackFun:"getName",
 //              stuId:"oid",
 //              password:"opw1",
 //              name:"name",
@@ -140,8 +129,8 @@
 
     });
     </script>
-    <style>
-        #container{
+<style>
+    #container{
             max-width: 200px;
             width: 100%;
             margin: 20px auto;
@@ -175,8 +164,8 @@
             }
         }
     </style>
-    <style>
-        body{
+<style>
+    body{
             background-image: url("imgs/backimg3.png");
             background-size: 100%;
         }
@@ -203,13 +192,14 @@
             border-radius: 30px;
         }
     </style>
+
     <body  style=" overflow: hidden;">
+
     <header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
         <div style="text-align: center;vertical-align: center;line-height: 50px">偏好选择</div>
-
-
         </div>
     </header>
+
 		<!-- Top menu -->
 
 
@@ -247,12 +237,13 @@
 
 			                    </form>
 		                    </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-           
         </div>
+
     <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  id="">
         <ul class="am-navbar-nav am-cf am-avg-md-4">
             <li>
@@ -283,11 +274,10 @@
         <script src="studentPrefer/assets/js/jquery.backstretch.min.js"></script>
         <!-- <script src="studentPrefer/assets/js/retina-1.1.0.min.js"></script> -->
         <script src="studentPrefer/assets/js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="studentPrefer/assets/js/placeholder.js"></script>
-        <![endif]-->
+ 
 
-    </body>
+          <!-- <script src="studentPrefer/assets/js/placeholder.js"></script> -->
+        
+</body>
 
 </html>

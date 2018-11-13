@@ -134,16 +134,15 @@ console.log("mima");
         
 		console.log(JSON.stringify(data));
         alert("sucess " + JSON.stringify(data));
-        if(data.state=="1")
-        {
+        if(data.state=="1"){
+
         	console.log("成功！");
         	window.location.href='./index.html';
-        }
-       
-         if(data.state=="0")
-        {
+
+        }else if(data.state=="0"){
+
         	console.log("失败");
-        	
+        	window.location.href='./studentRegister.html';
         }
     }
 
@@ -184,23 +183,16 @@ console.log("mima");
     			console.log(oid);
     		//<!--stuId,name,gender,phoneNum,field,class,password,campus-->
     		
-          
-         
-          if(!window.localStorage){
-              alert("浏览器支持localstorage");
-              // return false;
-          }else{
-              var storage = window.localStorage;
-        
-              storage.stuId = oid;
-              storage.password = opw2;
-              storage.name = name;
-              storage.gender = gender;
-              storage.phoneNum = phoneNum;
-              storage.field = field;
-              storage.class = oclass;
-              storage.campus = campus;
-          }
+ 
+          window.localStorage.stuId = oid;
+          window.localStorage.password = opw2;
+          window.localStorage.name = name;
+          window.localStorage.gender = gender;
+          window.localStorage.phoneNum = phoneNum;
+          window.localStorage.field = field;
+          window.localStorage.class = oclass;
+          window.localStorage.campus = campus;
+          window.localStorage.isLogin = "false";
 
            //向头部输入一个脚本，该脚本发起一个跨域请求
             $.ajax({
