@@ -139,54 +139,8 @@
     </div>
 </div>
 <div class="container col-md-8 col-md-offset-3"  id="notices">
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
-    <div class="panel panel-default">
-        <div>
-            <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
-        </div>
-        <div class="panel-footer" style="padding: 0px"> 2018-10-19</div>
-    </div>
+
+
     <div class="panel panel-default">
         <div>
             <a class="infotitle " class="panel-body" href="Info.html">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>
@@ -222,7 +176,7 @@
             </a>
         </li>
         <li>
-            <a href="studentDetail.html" class=""  style="padding-top: 5px">
+            <a href="./studentDetail.html" class=""  style="padding-top: 5px">
                 <img src="imgs/my.png" height="50" width="38"/>
                 <span class="am-navbar-label" style="padding-top: 5px">我的</span>
             </a>
@@ -238,24 +192,6 @@
         $('#demo_box').popmenu();
     });
 
-    $(this).attr("state","true");
-    current = "school";
-    $('#BigCategory').text("学校通知");
-    $('#SmallCategory').text("全部内容");
-    $.ajax
-    ({
-        /**重点：ajax只需要type和url属性*/
-        type: "get",//数据发送的方式（post 或者 get）
-        //type:"20",
-        url: window.localStorage.url + "/kindInfo",
-        data:
-            {
-                callbackFun:"getName",
-                type: "20"
-            },
-        dataType: "jsonp"  //数据格式设置为jsonp
-
-    });
     $("#school").click(function () {
         // alert("dffddf");
         $(this).attr("state","true");
@@ -267,7 +203,7 @@
             /**重点：ajax只需要type和url属性*/
             type: "get",//数据发送的方式（post 或者 get）
             //type:"20",
-            url: window.localStorage.url + "/kindInfo",
+            url: "http://58.87.72.83:3000/kindInfo",
             data:
                 {
                     callbackFun:"getName",
@@ -288,7 +224,7 @@
             /**重点：ajax只需要type和url属性*/
             type: "get",//数据发送的方式（post 或者 get）
             //type:"20",
-            url: window.localStorage.url + "/kindInfo",
+            url: "http://58.87.72.83:3000/kindInfo",
             data:
                 {
                     callbackFun: "getName",
@@ -309,7 +245,7 @@
              /**重点：ajax只需要type和url属性*/
              type: "get",//数据发送的方式（post 或者 get）
              //type:"20",
-             url: window.localStorage.url + "/kindInfo",
+             url: "http://58.87.72.83:3000/kindInfo",
              data:
                  {
                      callbackFun: "getName",
@@ -342,7 +278,7 @@
         /**重点：ajax只需要type和url属性*/
         type: "get",//数据发送的方式（post 或者 get）
         //type:"20",
-        url: window.localStorage.url + "/kindInfo",
+        url: "http://58.87.72.83:3000/kindInfo",
         data:
             {
             callbackFun:"getName",
@@ -363,7 +299,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
               	    callbackFun:"getName",
@@ -379,7 +315,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -394,7 +330,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -414,7 +350,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
             	callbackFun:"getName",
@@ -430,7 +366,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -445,7 +381,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -465,7 +401,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -481,7 +417,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -496,7 +432,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -517,7 +453,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -533,7 +469,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -548,7 +484,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -569,7 +505,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -585,7 +521,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -600,7 +536,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -620,7 +556,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -636,7 +572,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -651,7 +587,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -671,7 +607,7 @@
             ({
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -687,7 +623,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -702,7 +638,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -723,7 +659,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -739,7 +675,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -754,7 +690,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -774,7 +710,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun:"getName",
@@ -790,7 +726,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -805,7 +741,7 @@
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/kindInfo",
+                url: "http://58.87.72.83:3000/kindInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -826,7 +762,7 @@
     function getName(data) {
         {
             console.log("进入回调函数！");
-            // console.log(JSON.stringify(data));
+            console.log(JSON.stringify(data));
                 var json = eval(data); //数组  
                 $('#notices').html("");
                 $.each(json, function (index, item) {
@@ -871,17 +807,15 @@
         return ele;
     }
 </script>
-
 <script type="text/javascript">
     function searchTitle(title){
         console.log(title);
-        
         $.ajax
             ({
                 /**重点：ajax只需要type和url属性*/
                 type: "get",//数据发送的方式（post 或者 get）
                 //type:"20",
-                url: window.localStorage.url + "/studentSearchInfo",
+                url: "http://58.87.72.83:3000/studentSearchInfo",
                 data:
                     {
                         callbackFun: "getName",
@@ -891,6 +825,5 @@
             });
     }
 </script>
-
 </body>
 </html>
