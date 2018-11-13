@@ -41,7 +41,9 @@
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        
+        window.localStorage.url = 'http://127.0.0.1:3000';
+        // window.localStorage.isLogin = "false";
+//      alert(window.localStorage.isLogin);
         if(window.localStorage.isLogin == "true"){
         	window.location.href = "plan.html";
         }else{

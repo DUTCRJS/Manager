@@ -1,0 +1,24 @@
+.control-label {display: block; text-align:left;}
+ @media (min-width: 768px) {
+     .control-label {
+                 display:inline-block;min-width:75px; text-align:right;
+             }
+ }
+
+ .vg { display: block; position: relative; overflow: visible; }
+ .vg .form-control{display:block;max-width:inherit;}
+ @media (min-width: 768px) {
+     .vg { display: inline-block; }
+ }
+
+  .vg .field-validation-error {
+                 position: absolute; bottom: 101%; min-height: 30px; z-index: 999; right: 0px;
+                 background: #ff0000; color: #FFFFFF; padding: 0px; border: 7px solid #ff0000;
+                 border-radius: 0.7em; font-size: 9pt; font-family: "Helvetica Neue", Helvetica,微软雅黑, Arial, sans-serif;
+                 max-height: 3.7em; overflow: visible; text-overflow: ellipsis; line-height: 1.3em; opacity: 0.7;
+             }
+
+ .vg .field-validation-error::after {
+                    content: " "; position: absolute; width: 1px; height: 1px; border: 14px solid blue; border-color: transparent;
+                    border-top-color: #ff0000; display: block; overflow: visible; top: 100%; right: 0px;
+        }
