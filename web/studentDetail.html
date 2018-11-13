@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</h3>
 				<br>
 				 </div>
-				<div style="  font-height: 14px;text-align: center;display: inline-block;width: 70%;">
+				<div id="allkinds" style="  font-height: 14px;text-align: center;display: inline-block;width: 70%;">
 					<ul id="prefer1" style="width: 100%"><span style="text-align: center">科创</span></ul>
 					<ul id="prefer2" style="width: 100%"><span style="text-align: center">科创</span></ul>
 					<ul id="prefer3" style="width: 100%"><span style="text-align: center">科创</span></ul>
@@ -158,9 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="prefer5" style="width: 100%"><span style="text-align: center">科创</span></ul>
 					<ul id="prefer6" style="width: 100%"><span style="text-align: center;color: #cccccc">科创</span></ul>
 					<a href="studentPrefer.html">
-						<!--<button style="width: 50%;margin-top: 20px;border-style: none;background-color: whitesmoke;border-radius: 10px"  type="button" >-->
 						更改偏好
-						<!--</button>-->
 					</a>
 				</div>
 			</div>
@@ -196,4 +194,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---->
 </body>
+<script type="text/javascript">
+    $.ajax({
+    type: "GET",
+
+	    url: window.localStorage.url + "/studentDetail",
+	    data: {
+	      callbackFun:"getName",
+	      stuId:window.localStorage.stuId
+	      
+	    },
+	    dataType:"jsonp"  //数据格式设置为jsonp
+
+	});
+	function getName(data){
+		// alert(JSON.stringify(data));
+		data.push({kind:"24"});
+		$("#stuId").html(window.localStorage.stuId);
+		$("#name").html(window.localStorage.name);
+		$("#gender").html(window.localStorage.gender);
+		$("#phoneNum").html(window.localStorage.phoneNum);
+		$("#field").html(window.localStorage.field);
+		$("#class").html(window.localStorage.class);
+		$("#campus").html(window.localStorage.campus);
+		var list_key = new Set();
+		data.forEach(function(item){
+
+			list_key.add(retKind(item.kind));
+		})
+
+		var allkind = ['科创竞赛','文体实践','评奖竞选','课程考试','个人生活','其他'];
+
+		console.log(list_key);
+		console.log(allkind);
+		$("#allkinds").html("");
+		allkind.forEach(function(item){
+			if(!list_key.has(item)){
+				$("#allkinds").append(
+				'<ul id="prefer6" style="width: 100%"><span style="text-align: center;color: #cccccc">'+item+'</span></ul>'
+				);
+			}else{
+				$("#allkinds").append(
+				'<ul id="prefer5" style="width: 100%"><span style="text-align: center">'+item+'</span></ul>'
+				);
+			}
+		})
+		$("#allkinds").append(
+		'<a href="studentPrefer.html">'+
+			'更改偏好'+
+		'</a>');
+		// for (let item of list_key.keys()) {
+		//     console.log(item);
+		// }
+
+	}
+    function retKind(kindId){
+	    var chuangStr=kindId.indexOf("3");
+	    var teacherStr=kindId.indexOf("7");
+	    var studentStr=kindId.indexOf("8");
+
+	    if(kindId == "11" || chuangStr==0){
+	        return "科创竞赛";
+	    }else if(kindId == "12" || kindId == "14" || kindId == "21"|| kindId == "22"|| kindId == "24" ){
+	        return "文体实践";
+	    }else if(kindId == "13" ||kindId ==  "23"){
+	        return "评奖竞选";
+	    }else if(kindId == "16" ||kindId ==  "26"){
+	        return "课程考试";
+	    }else if(teacherStr == 0 || studentStr == 0){
+	        return "个人生活";
+	    }else if(kindId == "15" || kindId == "17" || kindId == "19" || kindId == "25" || kindId == "27" || kindId == "29"){
+	        return "其他";
+	    }else{
+	        return "其他";
+	    }
+
+	}
+</script>
 </html>

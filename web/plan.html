@@ -472,18 +472,18 @@
                         var chuangStr=kindId.indexOf("3");
                         var teacherStr=kindId.indexOf("7");
                         var studentStr=kindId.indexOf("8");
-                    
+
                         if(kindId == "11" || chuangStr==0){
                             return "科创竞赛";
-                        }else if(kindId == "12" || kindId == "14" ||kindId == "21" ){
+                        }else if(kindId == "12" || kindId == "14" || kindId == "21"|| kindId == "22"|| kindId == "24" ){
                             return "文体实践";
-                        }else if(kindId == "13" ||kindId ==  "13"){
+                        }else if(kindId == "13" ||kindId ==  "23"){
                             return "评奖竞选";
-                        }else if(kindId == "16" ){
+                        }else if(kindId == "16" ||kindId ==  "26"){
                             return "课程考试";
                         }else if(teacherStr == 0 || studentStr == 0){
                             return "个人生活";
-                        }else if(kindId == "15" || kindId == "17" || kindId == "19"){
+                        }else if(kindId == "15" || kindId == "17" || kindId == "19" || kindId == "25" || kindId == "27" || kindId == "29"){
                             return "其他";
                         }else{
                             return "其他";

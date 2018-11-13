@@ -166,12 +166,13 @@ exports.studentDetail = function (req,callback) {
     var stuId = req.query.stuId;
     // var infoId = "3" ;
     var sql =
-        'select * ' +
-        'from student ' +
+        'select kind\n' +
+        'from stulike\n' +
+
         'where stuId = "'+stuId+'"';
 
     manager.sequelize.query(sql).then(function(kinds) {
-        kinds = kinds[0][0];
+        kinds = kinds[0];
         console.log("ret " + JSON.stringify(kinds));
         callback(kinds);
     })
