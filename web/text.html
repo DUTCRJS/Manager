@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script type="text/javascript">
+        function disp_alert(callBackFun)
+        {
+            alert("我是警告框！！");
+            callBackFun()
+        }
+    </script>
 </head>
 <body>
-<script>
-    function getalertinfo(){
-        $.get('__URL__/alertinfo',function(data){
-//alert(data);
-            var json = eval(data); //数组  
-            $.each(json, function (index, item) {
-                //循环获取数据      
-                var id = json[index].id;
-                var addtime = json[index].addtime;
-                var images = json[index].images;
-                var title = json[index].title;
 
-                );
-            });
-        });
-    }
-</script>
-
-
-
-
-、
-
-<div class="box-list-news">
-    <ul class="clear-box" id="clear-box">
-
-              </ul>
-        <div class="clear"></div>
-</div>
+<input type="button" onclick="disp_alert(function callFun (){alert('我是callback方法')})" value="显示警告框" />
 
 </body>
 </html>
+
+
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--//     function getalertinfo(){-->
+<!--//         $.get('__URL__/alertinfo',function(data){-->
+<!--// //alert(data);-->
+<!--//             var json = eval(data); //数组  -->
+<!--//             $.each(json, function (index, item) {-->
+<!--//                 //循环获取数据      -->
+<!--//                 var id = json[index].id;-->
+<!--//                 var addtime = json[index].addtime;-->
+<!--//                 var images = json[index].images;-->
+<!--//                 var title = json[index].title;-->
+<!--//-->
+<!--//                 );-->
+<!--//             });-->
+<!--//         });-->
+<!--//     }-->
+<!--</script>-->
+
+
+
+
+<!--、-->
+
+<!--<div class="box-list-news">-->
+    <!--<ul class="clear-box" id="clear-box">-->
+
+        <!--      </ul>-->
+    <!--    <div class="clear"></div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->

@@ -42,7 +42,8 @@
       if (str == '' || str == undefined || str == null) 
       {
           //return true;
-          console.log('学号不能为空')
+          console.log('学号不能为空');
+          alert("学号不能为空~");
           return false;
       } 
       else {
@@ -56,6 +57,7 @@
 			else
 			{
         		  console.log('格式不正确');
+                alert("电话号码格式不正确~");
                   return false;
    			}
         
@@ -167,15 +169,15 @@ console.log("mima");
 
 
 
-    		// if(isnull_id(oid)
-    		// 	&&isnull( opw1)
-    		// 	&&isnull(name)
-    		// 	&&isnull(field)
-    		// 	&&isnull_pn(phoneNum)
-    		// 	&&isnull(gender)
-    		// 	&&isnull(oclass)
-    		// 	&&isnull(campus)
-    		// 	&&jianchaminma(opw1,opw2))
+    		if(isnull_id(oid)
+    			&&isnull( opw1)
+    			&&isnull(name)
+    			&&isnull(field)
+    			&&isnull_pn(phoneNum)
+    			&&isnull(gender)
+    			&&isnull(oclass)
+    			&&isnull(campus)
+    			&&jianchaminma(opw1,opw2))
     		{
     			console.log("go！");
     			console.log(oid);

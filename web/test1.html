@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script type="text/javascript">
+    function disp_alert(callBackFun)
+    {
+        alert("我是警告框！！");
+        callBackFun()
+    }
+</script>
+</head>
+<body>
+<!--对 callback 的认知就是把一个方法当做一个参数传入，然后在代码里面执行完毕之后在调用 callback 方法，它的适用场景非常广泛，不过在异步执行中最能体现它的价值。-->
+<input type="button" onclick="disp_alert(function callFun (){alert('我是callback方法')})" value="显示警告框" />
+</body>
+</html>

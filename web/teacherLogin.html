@@ -37,7 +37,13 @@
       if (str == '' || str == undefined || str == null) 
       {
           //return true;
-          console.log('职工号不能为空')
+          console.log('职工号不能为空');
+
+          // $("#btn").popover({content: '职工号不能为空',
+          // trigger: 'focus'});
+
+
+          alert("职工号不能为空~");
           return false;
       } 
       else {
@@ -51,6 +57,8 @@
 			else
 			{
         		  console.log('格式不正确');
+
+                alert("职工号格式不正确~");
                   return false;
    			}
         
@@ -63,7 +71,10 @@
       if (str == '' || str == undefined || str == null) 
       {
           //return true;
-          console.log('密码不能为空')
+          console.log('密码不能为空');
+          alert("密码不能为空")
+          // $("#btn").popover({content: '密码不能为空'});
+          // $("#btn").popover({trigger: 'focus'});
              return false;
       } 
       else {
@@ -73,6 +84,7 @@
     		
   			}
      }
+
 
 
 
