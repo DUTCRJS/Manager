@@ -1,5 +1,6 @@
 var student = require('../DB/student');
 var manager = require("../DB/manager");
+var info = require("../DB/info");
 var moment = require('moment');
 var crypto = require("./crypto");
 
@@ -123,6 +124,7 @@ exports.studentAllInfo = function (req,callback) {
 
     var stuId = req.query.stuId;
     // var stuId = "201692077";
+
     var sql =
         'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime,info.kind\n' +
         'from stulike join infokind on stulike.kind = infokind.kind\n' +
@@ -188,17 +190,30 @@ exports.studentAddOneInfo = function (req,callback) {
         value = value[0][0];
         var infoId = value.infoId + 1;
 
-        var sql =
-            ' insert into info ' +
-            ' values ("'+ infoId +'","'+oneInfo.title+'","'+
-            oneInfo.pubTime +'","'+oneInfo.startTime+'","'+oneInfo.endTime +'","'+oneInfo.content+'","'+'""+); ' +
-            ' insert into stuadd values ("'+stuId+'",' + ', "'+infoId+'");';
+        info.create({
+            infoId:infoId,
+            title:oneInfo.title,
+            pubTime:oneInfo.pubTime,
+            startTime:oneInfo.startTime,
+            endTime:oneInfo.endTime,
+            content:oneInfo.content,
+            htmlContent:oneInfo.htmlContent,
+            kind:oneInfo.kind
+        }).then(function (p) {
+            // console.log(p.kind);
+            //创造info的kind
+            var sql1 = ' insert into stuadd values ("'+stuId+'",' + '"'+infoId+'");';
+            manager.sequelize.query(sql1).then(function (value2) {
+                console.log("学生自定义通知插入成功！ "  + JSON.stringify(value2));
+                callback({state:1,msg:"学生自定义通知插入成功！"});
+            });
 
-        manager.sequelize.query(sql).then(function(kinds) {
-            kinds = kinds[0][0];
-            console.log("学生自定义通知插入成功！ " + JSON.stringify(kinds));
-            callback({state:1,msg:"学生自定义通知插入成功！"});
-        })
+        }).catch(function (err) {
+            console.log('failed: ' + err);
+        });
+
+
+
     });
 
 };
