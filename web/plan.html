@@ -130,9 +130,9 @@
                         this.events.forEach(function(ev) {
                             
                             // ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
-                            var dateTemp = ev.pubTime.date();
+                            var dateTemp = ev.startTime.date();
                             // if(moment(ev.pubTime).month() == moment(this.current).month() ){
-                            ev.date = moment(ev.pubTime);
+                            ev.date = moment(ev.startTime);
                             // console.log("self.current " + self.current.format());
                             // }else{
                             //     ev.date = self.current.clone().date(0);
@@ -514,7 +514,9 @@
                             // console.log("moment(item.pubTime).month() "+ moment(item.pubTime).month());
                             // console.log("moment().month()+1 " + moment().month() )
                             var oneData = {};
+
                             allkind = JSON.parse(item.kind);
+                            // console.log("allkind " + allkind);
                             allkind.forEach(function(kind,index){
 
                                 var kindName = retKind(kind);

@@ -35,17 +35,16 @@
       console.log("get");
         console.log(data.state);
         
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
         //alert("sucess " + JSON.stringify(data));
-        if(data.state=="2")
+        if(data.state=="1")
         {
-          console.log("成功！");
-          window.location.href='../plan.html';
-        }
-       
-         if(data.state=="0")
-        {
-          console.log("失败");
+           alert("偏好设置成功！");
+           window.location.href='./plan.html';
+        }else if(data.state=="0"){
+
+           alert("偏好设置失败！");
+           window.location.href='./studentPrefer.html';
           
         }
     }
@@ -72,7 +71,52 @@
                  else
                  {
                      console.log("++");
-                     arrayObj.push(this.value);
+                     console.log("this.value" + this.value);
+                     if(this.value=='10'){
+                        arrayObj.push('10');
+                        arrayObj.push('20');
+                        arrayObj.push('30');
+                        arrayObj.push('17');
+                        arrayObj.push('27');
+                        arrayObj.push('37');
+                        arrayObj.push('18');
+                        arrayObj.push('28');
+                        arrayObj.push('38');
+                        arrayObj.push('19');
+                        arrayObj.push('29');
+                        arrayObj.push('39');
+                     }else if(this.value=='11'){
+                        arrayObj.push('11');
+                        arrayObj.push('21');
+                        arrayObj.push('31');
+                     }else if(this.value=='12'){
+                        arrayObj.push('12');
+                        arrayObj.push('22');
+                        arrayObj.push('32');
+                     }else if(this.value=='13'){
+                        arrayObj.push('13');
+                        arrayObj.push('23');
+                        arrayObj.push('33');
+                     }else if(this.value=='14'){
+                        arrayObj.push('14');
+                        arrayObj.push('24');
+                        arrayObj.push('34');
+                     }else if(this.value=='15'){
+                        arrayObj.push('15');
+                        arrayObj.push('25');
+                        arrayObj.push('35');
+                     }else if(this.value=='16'){
+                        arrayObj.push('16');
+                        arrayObj.push('26');
+                        arrayObj.push('36');
+
+                        
+                     }else if(this.value=='17'){
+                        arrayObj.push('17');
+                        arrayObj.push('27');
+                        arrayObj.push('37');
+                     }
+                     
                  }
                      if ($('li.selected').length == 0)
            {
@@ -103,25 +147,7 @@
                 
                 },
                 dataType:"jsonp"  //数据格式设置为jsonp
-                //jsonp:"callback"
-            //向头部输入一个脚本，该脚本发起一个跨域请求
-     //         $.ajax({
-//              type: "GET",
-//              url: "http://58.87.72.83:3000/studentRegister",
-//              data: {
-//                callbackFun:"getName",
-//              stuId:"oid",
-//              password:"opw1",
-//              name:"name",
-//              gender:"gender",
-//              phoneNum:"phoneNum",
-//              field:"field",
-//              class:"oclass",
-//              campus:"campus",
-//              },
-//              dataType:"jsonp"  //数据格式设置为jsonp
-                
-                //jsonp:"callback"
+ 
             });
             console.log("gogogo！");
            
@@ -193,58 +219,43 @@
         }
     </style>
 
-    <body  style=" overflow: hidden;">
-
+<body style=" overflow: hidden;">
     <header data-am-widget="header" class="am-topbar am-topbar-inverse am-topbar-fixed-top">
         <div style="text-align: center;vertical-align: center;line-height: 50px">偏好选择</div>
         </div>
     </header>
-
-		<!-- Top menu -->
-
-
-        <!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg" style="padding: 0px 0 100px 0">
-                <div class="container" style="margin-top: 50px">
-                    <div class="row">
-                        
-                        <div class="col-sm-5 form-box" style="margin-top: 0px">
-
-                            <div class="form-bottom" style="height:540px;border-radius: 0">
-			                    <form role="form" action="" method="post" class="registration-form">
-
-<div style="text-align:center;clear:both">
-<!-- <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+    <!-- Top menu -->
+    <!-- Top content -->
+    <div class="top-content">
+        <div class="inner-bg" style="padding: 0px 0 100px 0">
+            <div class="container" style="margin-top: 50px">
+                <div class="row">
+                    <div class="col-sm-5 form-box" style="margin-top: 0px">
+                        <div class="form-bottom" style="height:540px;border-radius: 0">
+                            <form role="form" action="" method="post" class="registration-form">
+                                <div style="text-align:center;clear:both">
+                                    <!-- <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
 <script src="/follow.js" type="text/javascript"></script> -->
-</div>
-<ul style="width:100%; background-color: red;margin-top: 0">
-
-  <li style="width:45%;float:left;margin:0;" id="kechuang" value="11"><img src="imgs/kechuang.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-left: 10%;" id="wenti" value="12"><img src="imgs/wenti.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-top: 15px" id="pingjiangjingxuan" value="13"><img src="imgs/pingjiang.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-left: 10%;margin-top: 15px" id="shijian" value="14"><img src="imgs/shijian.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-top: 15px" id="gongshi" value="15"><img src="imgs/gongshi.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-left: 10%;margin-top: 15px" id="kechengyukaoshi" value="16"><img src="imgs/kaoshi.png" /></li>
-  <li style="width:45%;float:left;margin:0;margin-top: 15px" id="qita" value="10"><img src="imgs/qita.png" /></li>
-</ul>
-
-  <!--<script src='js/jquery.js'></script>-->
-
-
-			                      <div style="width: 100%;float: left;text-align: -webkit-center;margin-top: 10px;"><button style="display: block;height:45px" type="button" class="btn" id="bbtn" style="width:40%">我选好了!</button></div>
-
-			                    </form>
-		                    </div>
-
+                                </div>
+                                <ul style="width:100%; background-color: red;margin-top: 0">
+                                    <li style="width:45%;float:left;margin:0;" id="kechuang" value="11"><img src="imgs/kechuang.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-left: 10%;" id="wenti" value="12"><img src="imgs/wenti.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-top: 15px" id="pingjiangjingxuan" value="13"><img src="imgs/pingjiang.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-left: 10%;margin-top: 15px" id="shijian" value="14"><img src="imgs/shijian.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-top: 15px" id="gongshi" value="15"><img src="imgs/gongshi.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-left: 10%;margin-top: 15px" id="kechengyukaoshi" value="16"><img src="imgs/kaoshi.png" /></li>
+                                    <li style="width:45%;float:left;margin:0;margin-top: 15px" id="qita" value="10"><img src="imgs/qita.png" /></li>
+                                </ul>
+                                <!--<script src='js/jquery.js'></script>-->
+                                <div style="width: 100%;float: left;text-align: -webkit-center;margin-top: 10px;"><button style="display: block;height:45px" type="button" class="btn" id="bbtn" style="width:40%">我选好了!</button></div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  id="">
+    </div>
+    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout" id="">
         <ul class="am-navbar-nav am-cf am-avg-md-4">
             <div style="width:33%">
                 <a href="notice.html" class="" style="padding-top: 0px">
@@ -271,7 +282,6 @@
                     <!--<img src="imgs/calendar.png" height="48" width="48"style="height:40px;width: 40px;box-shadow: none"/>-->
                     <span class="am-navbar-label" style="padding-top: 0px">日程</span>
                 </a>
-
             </div>
             <div style="width: 34%">
                 <a href="studentDetail.html" class=""  style="padding-top: 0px">
@@ -285,18 +295,13 @@
             </div>
         </ul>
     </div>
-
-
-        <!-- Javascript -->
-        <!--<script src="studentPrefer/assets/js/jquery-1.11.1.min.js"></script>-->
-        <script src="studentPrefer/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="studentPrefer/assets/js/jquery.backstretch.min.js"></script>
-        <!-- <script src="studentPrefer/assets/js/retina-1.1.0.min.js"></script> -->
-        <script src="studentPrefer/assets/js/scripts.js"></script>
- 
-
-          <!-- <script src="studentPrefer/assets/js/placeholder.js"></script> -->
-        
+    <!-- Javascript -->
+    <!--<script src="studentPrefer/assets/js/jquery-1.11.1.min.js"></script>-->
+    <script src="studentPrefer/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="studentPrefer/assets/js/jquery.backstretch.min.js"></script>
+    <!-- <script src="studentPrefer/assets/js/retina-1.1.0.min.js"></script> -->
+    <script src="studentPrefer/assets/js/scripts.js"></script>
+    <!-- <script src="studentPrefer/assets/js/placeholder.js"></script> -->
 </body>
 
 </html>
