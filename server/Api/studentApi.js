@@ -245,14 +245,15 @@ exports.kindInfo = function (req,callback) {
         sql =
             'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime\n' +
             'from info join infokind on infokind.infoId = info.infoId \n' +
-            'where infokind.kind like "' + kind.substr(0, 1) +'%"';
+            'where infokind.kind like "' + kind.substr(0, 1) +'%"\n';
     }else {
 
      sql =
         'select distinct info.infoId,info.title,info.pubTime,info.startTime,info.endTime\n' +
         'from info join infokind on infokind.infoId = info.infoId \n' +
-        'where infokind.kind = "'+ kind +'"';
+        'where infokind.kind = "'+ kind +'"\n';
     }
+    sql += 'order by pubTime ';
     console.log("sql " + sql);
     manager.sequelize.query(sql).then(function (value) {
         value = value[0];
