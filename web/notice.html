@@ -304,6 +304,9 @@
 
 
     $(".fa-home").click(function () {
+         $("#demo_ul").css("display","none");
+        // $("#demo_ul").attr("display","none");
+        console.log( $("#demo_box"));
         // alert("current" + current);
         $('#SmallCategory').text("全部内容");
         if (current === "school") {
@@ -356,6 +359,7 @@
     });
     //fa-cloud 课程考试
     $(".fa-cloud").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("课程考试");
         if (current === "school") {
             $.ajax
@@ -407,6 +411,7 @@
     });
     // fa-cog 科创竞赛
     $(".fa-cog").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("科创竞赛");
         if (current === "school") {
             $.ajax
@@ -458,6 +463,8 @@
     });
     //fa-envelope 文体活动
     $(".fa-envelope").click(function () {
+        $("#demo_ul").css("display","none");
+
         $('#SmallCategory').text("文体活动");
 
         if (current === "school") {
@@ -510,6 +517,7 @@
     });
     //fa-clock-o 实践交流
     $(".fa-clock-o").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("实践交流");
 
         if (current === "school") {
@@ -562,6 +570,7 @@
     });
     //  fa-folder 评奖竞选
     $(".fa-folder").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("评奖竞选");
         if (current === "school") {
             $.ajax
@@ -613,6 +622,7 @@
     });
     //fa-heart-o 通知公示
     $(".fa-heart-o ").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("通知公示");
 
         if (current === "school") {
@@ -664,6 +674,7 @@
     });
     //fa-film 外出交流
     $(".fa-film ").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("外出交流");
 
         if (current === "school") {
@@ -716,6 +727,7 @@
     });
     //fa-mobile 其他
     $(".fa-mobile ").click(function () {
+        $("#demo_ul").css("display","none");
         $('#SmallCategory').text("其他");
         if (current === "school") {
             $.ajax
