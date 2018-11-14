@@ -118,7 +118,7 @@
             /**重点：ajax只需要type和url属性*/
             type: "get",//数据发送的方式（post 或者 get）
             //type:"20",
-            url: "http://58.87.72.83:3000/studentOneInfo",
+            url: window.localStorage.url + "/studentOneInfo",
             data:
                 {
                     callbackFun: "getName",
