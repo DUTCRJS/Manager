@@ -45,6 +45,9 @@
             overflow-x: scroll;
         }
     }
+    a{
+        cursor: pointer;
+    }
 </style>
 <style>
     .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
@@ -149,15 +152,6 @@
     </div>
 
 </div>
-<!--没有面板样式的普通版本-->
-<!--<div class="siminfo" >-->
-<!--<a class="infotitle ">学业指导中心20172018学年本科生科研能力提升讲座(第一、二期)的通知</a>-->
-<!--<p class="infoPubtime"> 2018-10-19 </p>-->
-<!--</div>-->
-
-
-
-
 
 
 <div style="height: 58px;"></div>
@@ -190,6 +184,7 @@
     var current ;
     $(function(){
         $('#demo_box').popmenu();
+        //current = campus;
     });
 
     $("#school").click(function () {
@@ -772,7 +767,6 @@
                     // console.log(id);
                     var Title = json[index].title;
                     var pubTime = json[index].pubTime;
-                    console.log
                     var NoticePanel= createElement('div', 'panel panel-default');
                     var NoticeTitle = createElement('a', 'infotitle',Title);
                     // var temphref = "info.html?infoId=" + id;
