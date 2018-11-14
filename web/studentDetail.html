@@ -162,6 +162,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</a>
 				</div>
 			</div>
+
+
+			<div class="" style="margin: 0 auto;padding-left: 18rem ">
+				<button id="logout" class="btn btn-primary">注销账号</button>
+			</div>
 			<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default sq-foot am-no-layout"  id="">
 				<ul class="am-navbar-nav am-cf am-avg-md-4">
 					<li>
@@ -186,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 
-		<!--<div class="clearfix"></div>-->
+		
 
 <!---->
 
@@ -206,6 +211,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    },
 	    dataType:"jsonp"  //数据格式设置为jsonp
 
+	});
+
+	$("#logout").click(function(){
+		window.localStorage.isLogin = "false";
+		location.href = "./index.html";
 	});
 	function getName(data){
 		// alert(JSON.stringify(data));

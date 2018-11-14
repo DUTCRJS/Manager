@@ -28,6 +28,7 @@
     <script type="text/javascript" src="./js/biaodan.js"></script>
     <script type="text/javascript">
    
+
     	function teaPage()
     	{
     		window.location.href='teacherLogin.html';
@@ -211,6 +212,10 @@
         <!--[if lt IE 10]>
             <script src="./login/assets/js/placeholder.js"></script>
         <![endif]-->
+        <script type="text/javascript">
+          $("#stuID").attr("value",window.localStorage.stuId);
+          $("#password").attr("value",window.localStorage.password);
+        </script>
 
     </body>
 
