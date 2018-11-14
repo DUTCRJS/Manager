@@ -6,11 +6,26 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"href="css/bootstrap.min.css" />
+
 <link rel="stylesheet" href="css/amazeui.min.css" />
 <link rel="stylesheet" href="css/app.css" />
 <body>
 <style>
     .am-navbar{position:fixed;left:0;bottom:0;width:100%;height:58px;line-height:55px;z-index:1010}
+    #headertitle{
+        width: 200px;
+        height: 25px;
+        overflow: hidden;
+
+    }
+
+    .mycenter {
+        width: auto;
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 </style>
 <script src="js/bringininfo.js"></script>
@@ -19,13 +34,14 @@
         <img src="imgs/返回 .png" height="20" width="20" style="margin-bottom: -40px;margin-left: 15px"/>
     </a>
 
-    <div style="text-align: center ;">学业指导中心20172018学年...</div>
+    <div class="center-block" style="text-align: center ;" id="headertitle"></div>
 
 
 </header>
 
 <div style="height: 70px"></div>
 
+<!--标题位置-->
 <div class="col-md-10 col-md-offset-1">
      <div class="well well-primary" style="margin-bottom: 5px">
             <h3 id="Infotitle">  </h3>
@@ -35,22 +51,26 @@
     <span class="label label-success" id="Infopubtime"></span>
 </p>
     </div>
+
+    <!--文章内容-->
 <div id="infoContent">
-
-
 </div>
-    <div>
-        <ul class="pagination">
+
+
+
+  <div class="mycenter">
+        <ul class="pagination ">
             <li id="preInfo"><a href="#">上一篇</a></li>
             <li id="nextInfo"><a href="#">下一篇</a></li>
         </ul>
     </div>
 
-</div>
 
 
 
-</div>
+
+
+
 
 
 
@@ -108,11 +128,15 @@
 
     function getName(data){
         console.log(JSON.stringify(data));
-
+        console.log(data.title);
+        $("#headertitle").text(data.title);
+        $("#Infotitle").text(data.title);
+        $("#Infopubtime").text(data.pubTime);
         $("#infoContent").html(data.htmlContent);
     }
 
     var infoIdTemp = window.localStorage.curInfo;
+    var infoTitle=window.localStorage;
     // alert(infoIdTemp);
     $.ajax({
             /**重点：ajax只需要type和url属性*/
@@ -123,11 +147,12 @@
                 {
                     callbackFun: "getName",
                     infoId: infoIdTemp
-
                 },
             dataType: "jsonp"  //数据格式设置为jsonp
     });
 
+
+    //上一篇和下一篇的跳转
     $("#preInfo").click(function(){
         infoIdTemp -=  parseInt(infoIdTemp) - 1;
         window.localStorage.curInfo = infoIdTemp;
