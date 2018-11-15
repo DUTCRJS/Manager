@@ -223,13 +223,13 @@ exports.studentSearchInfo = function (req,callback) {
     // var infoId = "3" ;
 
     var sql =
-        ' select *  ' +
+        ' select infoId , title, pubTime, startTime, endTime' +
         ' from info ' +
-        ' where title like "%通知%" ' +
+        ' where title like "%'+title+'%" ' +
         ' limit 5';
     manager.sequelize.query(sql).then(function (value) {
         value = value[0];
-        console.log("模糊搜索的title " + value);
+        console.log("模糊搜索的title " + JSON.stringify(value));
         callback(value);
 
     });
