@@ -18,24 +18,42 @@ exports.createAStudent = function(req,callback) {
 
     // var now = Date.now();
     var stu = req.query;
-    console.log("stu" + stu);
-    student.create({
-        stuId:stu.stuId,
-        name:stu.name,
-        gender:stu.gender,
-        phoneNum:stu.phoneNum,
-        field:stu.field,
-        class:stu.class,
-        password:crypto.decode(stu.password),
-        campus:stu.campus
-    }).then(function (p) {
-        console.log('created.' + JSON.stringify(p));
-        callback({state:1,mag:'注册成功！'});
-    }).catch(function (err) {
-        console.log('failed: ' + err);
-        callback({state:0,mag:'注册失败，请重试！'});
+    console.log("stu" + JSON.stringify(stu) );
+    var dePassword = crypto.decode(stu.password);
+    console.log("dePassword "+dePassword);
+    console.log("stu" + JSON.stringify(stu) );
 
+    student.findAll({
+        where:{
+            stuId:stu.stuId
+        }
+    }).then(function (oneStudent) {
+        console.log("oneStudent " + oneStudent.length);
+        if(oneStudent.length>=1){
+            callback({state:0,msg:'用户已经存在，请重试！'});
+        }else{
+            student.create({
+                stuId:stu.stuId,
+                name:stu.name,
+                gender:stu.gender,
+                phoneNum:stu.phoneNum,
+                field:stu.field,
+                class:stu.class,
+                password:dePassword,
+                campus:stu.campus
+            }).then(function (p) {
+                console.log('created.' + JSON.stringify(p));
+                callback({state:1,msg:'注册成功！'});
+            }).catch(function (err) {
+                console.log('failed: ' + err);
+                callback({state:0,msg:'注册失败，请重试！'});
+
+            });
+        }
     });
+
+
+
 
 };
 
