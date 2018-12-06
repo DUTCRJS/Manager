@@ -57,7 +57,7 @@
 			else
 			{
         		  console.log('格式不正确');
-                alert("电话号码格式不正确~");
+                alert("学号格式不正确~");
                   return false;
    			}
         
@@ -141,7 +141,7 @@ console.log("mima");
 
         }else if(data.state=="0"){
 
-        	alert("注册失败"+data.msg);
+        	alert("注册失败"+ data.msg);
         	window.location.href='./studentRegister.html';
         }
     }
@@ -350,11 +350,11 @@ console.log("mima");
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-email">password</label>
-			                        	<input type="password" name="password" placeholder="请设置密码" class="form-email form-control" id="password">
+			                        	<input type="text" name="password" placeholder="请设置密码" class="form-email form-control" id="password">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-email">password again</label>
-			                        	<input type="password" name="password_again" placeholder="请再次输入密码" class="form-email form-control" id="password_again">
+			                        	<input type="text" name="password_again" placeholder="请再次输入密码" class="form-email form-control" id="password_again">
 			                        </div>
 			                         <div style="width: 100%; text-align: center;"><button type="button" class="btn" id="btn" style="width: 40%">提交!</button></div>
 
